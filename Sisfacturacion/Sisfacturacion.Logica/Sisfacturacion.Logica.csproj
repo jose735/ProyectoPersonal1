@@ -41,6 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioLogica.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sisfacturacion.Datos\Sisfacturacion.Datos.csproj">
+      <Project>{4050f90e-96a1-4884-a9ea-9976cffc7932}</Project>
+      <Name>Sisfacturacion.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sisfacturacion.Entidades\Sisfacturacion.Entidades.csproj">
+      <Project>{6600e24b-9a53-47d2-9a43-78982ab83634}</Project>
+      <Name>Sisfacturacion.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
