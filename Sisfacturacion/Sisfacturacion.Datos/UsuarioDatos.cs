@@ -99,7 +99,7 @@ namespace Sisfacturacion.Datos
                     usuario.nombreUsuario = reader["NombreUsuario"].ToString();
                     usuario.contrasenna = reader["Contrasena"].ToString();
                     usuario.nombreCompleto = reader["NombreCompleto"].ToString();
-                    usuario.idTipoUsuario = Convert.ToInt32(reader["TipoUsuario"].ToString());
+                    usuario.nombreTipoUsuario = reader["TipoUsuario"].ToString();
 
                     lista.Add(usuario);
                 }

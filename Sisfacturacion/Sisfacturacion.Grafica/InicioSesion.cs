@@ -14,6 +14,7 @@ namespace Sisfacturacion.Grafica
 {
     public partial class InicioSesion : Form
     {
+        public static String nombreDeUsuario = "";
         public InicioSesion()
         {
             InitializeComponent();
@@ -47,6 +48,9 @@ namespace Sisfacturacion.Grafica
             {
                 if (usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).Count > 0)
                 {
+                    Usuario u = new Usuario();
+                    u = usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).ElementAt(0);
+                    nombreDeUsuario = u.nombreCompleto;
                     Principal p = new Principal();
                     p.Show();
                     this.Hide();
@@ -61,6 +65,28 @@ namespace Sisfacturacion.Grafica
         private void InicioSesion_Load(object sender, EventArgs e)
         {
             txtNombreUsuario.Focus();
+            Principal.ind = false;
+        }
+
+        private void InicioSesion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Application.Exit();
+        }
+
+        private void InicioSesion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Principal.ind == false)
+            {
+                if (MessageBox.Show("Desea salir de esta aplicación?", "Sisfacturacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Principal.ind = true;
+                    Application.Exit();
+                }
+            }
         }
     }
 }

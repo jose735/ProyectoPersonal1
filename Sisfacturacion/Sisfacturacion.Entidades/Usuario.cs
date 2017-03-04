@@ -13,5 +13,6 @@ namespace Sisfacturacion.Entidades
         public String contrasenna { get; set; }
         public String nombreCompleto { get; set; }
         public int idTipoUsuario { get; set; }
+        public String nombreTipoUsuario { get; set; }
     }
 }
