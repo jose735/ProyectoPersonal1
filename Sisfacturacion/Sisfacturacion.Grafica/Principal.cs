@@ -89,5 +89,12 @@ namespace Sisfacturacion.Grafica
             CambiarContrasenna cc = new CambiarContrasenna();
             cc.ShowDialog();
         }
+
+        private void cajasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoCajas mc = new MantenimientoCajas();
+            mc.Show();
+            this.Hide();
+        }
     }
 }

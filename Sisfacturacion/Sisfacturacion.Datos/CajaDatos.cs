@@ -131,7 +131,7 @@ namespace Sisfacturacion.Datos
                 // Nota: es obligatorio cambiar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@descripcion", caja.descripcion);
-                comando.Parameters.AddWithValue("@idUsuario", caja.idCaja);
+                comando.Parameters.AddWithValue("@idUsuario", caja.idUsuario);
 
                 // Ejecutar el comando
                 comando.ExecuteNonQuery();
