@@ -15,6 +15,9 @@ namespace Sisfacturacion.Grafica
     public partial class InicioSesion : Form
     {
         public static String nombreDeUsuario = "";
+        public static String nombreUsuario = "";
+        public static int tipoDeUsuario = 0;
+        public static Boolean ind2 = false;
         public InicioSesion()
         {
             InitializeComponent();
@@ -51,6 +54,9 @@ namespace Sisfacturacion.Grafica
                     Usuario u = new Usuario();
                     u = usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).ElementAt(0);
                     nombreDeUsuario = u.nombreCompleto;
+                    nombreUsuario = u.nombreUsuario;
+                    tipoDeUsuario = u.idTipoUsuario;
+                    ind2 = true;
                     Principal p = new Principal();
                     p.Show();
                     this.Hide();
@@ -87,6 +93,13 @@ namespace Sisfacturacion.Grafica
                     Application.Exit();
                 }
             }
+        }
+
+        private void lblCambiarContrasenna_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ind2 = false;
+            CambiarContrasenna c = new CambiarContrasenna();
+            c.ShowDialog();
         }
     }
 }

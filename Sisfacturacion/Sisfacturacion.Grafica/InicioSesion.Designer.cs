@@ -35,6 +35,7 @@
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblMensaje = new System.Windows.Forms.Label();
+            this.lblCambiarContrasenna = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(149, 165);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(48, 165);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(119, 30);
             this.btnIniciarSesion.TabIndex = 4;
@@ -85,6 +86,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblCambiarContrasenna);
             this.groupBox1.Controls.Add(this.lblMensaje);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnIniciarSesion);
@@ -107,6 +109,17 @@
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 5;
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCambiarContrasenna
+            // 
+            this.lblCambiarContrasenna.AutoSize = true;
+            this.lblCambiarContrasenna.Location = new System.Drawing.Point(201, 174);
+            this.lblCambiarContrasenna.Name = "lblCambiarContrasenna";
+            this.lblCambiarContrasenna.Size = new System.Drawing.Size(152, 13);
+            this.lblCambiarContrasenna.TabIndex = 6;
+            this.lblCambiarContrasenna.TabStop = true;
+            this.lblCambiarContrasenna.Text = "desea cambiar su contraseña?";
+            this.lblCambiarContrasenna.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCambiarContrasenna_LinkClicked);
             // 
             // InicioSesion
             // 
@@ -136,6 +149,7 @@
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.LinkLabel lblCambiarContrasenna;
     }
 }
 

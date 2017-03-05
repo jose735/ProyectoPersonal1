@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambiarContrasenna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarContrasenna.Designer.cs">
+      <DependentUpon>CambiarContrasenna.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CambiarContrasenna.resx">
+      <DependentUpon>CambiarContrasenna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>

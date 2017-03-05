@@ -93,7 +93,7 @@ namespace Sisfacturacion.Grafica
             else
             {
                 //verifica que el usuario ya exista y se lo informa al usuario
-                if (uL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).Count > 0)
+                if (uL.ObtenerUsuario(txtNombreUsuario.Text).Count > 0)
                 {
                     lblMensaje.ForeColor = Color.Red;
                     lblMensaje.Text = "Lo sentimos, ya existe un usuario con estos datos, por favor ingrese otro";

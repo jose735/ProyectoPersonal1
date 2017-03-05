@@ -16,10 +16,22 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarUsuarioPorId(nombreUsuario, contrasenna);
         }
 
+        public List<Usuario> ObtenerUsuario(String nombreUsuario)
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            return datos.SeleccionarUsuarioPorId(nombreUsuario);
+        }
+
         public List<Usuario> ObtenerTodosUsuarios()
         {
             UsuarioDatos datos = new UsuarioDatos();
             return datos.SeleccionarTodosUsuario();
+        }
+
+        public List<Usuario> ObtenerTodosUsuarios2()
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            return datos.SeleccionarTodosUsuario2();
         }
 
         public void InsertarUsuario(Usuario usuario)
