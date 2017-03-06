@@ -33,14 +33,18 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cboUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvCajas = new System.Windows.Forms.DataGridView();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPersonaCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnInsertarCaja = new System.Windows.Forms.Button();
             this.btnModificarCaja = new System.Windows.Forms.Button();
             this.btnEliminarCaja = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPersonaCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.btnMostrarEstado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCajas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,15 +90,75 @@
             this.dgvCajas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCajas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDescripcion,
-            this.colPersonaCaja});
-            this.dgvCajas.Location = new System.Drawing.Point(98, 119);
+            this.colPersonaCaja,
+            this.colEstado});
+            this.dgvCajas.Location = new System.Drawing.Point(43, 164);
             this.dgvCajas.Name = "dgvCajas";
             this.dgvCajas.ReadOnly = true;
             this.dgvCajas.RowHeadersVisible = false;
             this.dgvCajas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCajas.Size = new System.Drawing.Size(396, 150);
+            this.dgvCajas.Size = new System.Drawing.Size(506, 150);
             this.dgvCajas.TabIndex = 4;
             this.dgvCajas.SelectionChanged += new System.EventHandler(this.dgvCajas_SelectionChanged);
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(30, 121);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(106, 23);
+            this.btnLimpiarCampos.TabIndex = 5;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // btnInsertarCaja
+            // 
+            this.btnInsertarCaja.Location = new System.Drawing.Point(167, 121);
+            this.btnInsertarCaja.Name = "btnInsertarCaja";
+            this.btnInsertarCaja.Size = new System.Drawing.Size(108, 23);
+            this.btnInsertarCaja.TabIndex = 6;
+            this.btnInsertarCaja.Text = "Nueva Caja";
+            this.btnInsertarCaja.UseVisualStyleBackColor = true;
+            this.btnInsertarCaja.Click += new System.EventHandler(this.btnInsertarCaja_Click);
+            // 
+            // btnModificarCaja
+            // 
+            this.btnModificarCaja.Location = new System.Drawing.Point(302, 121);
+            this.btnModificarCaja.Name = "btnModificarCaja";
+            this.btnModificarCaja.Size = new System.Drawing.Size(113, 23);
+            this.btnModificarCaja.TabIndex = 7;
+            this.btnModificarCaja.Text = "Modificar Caja";
+            this.btnModificarCaja.UseVisualStyleBackColor = true;
+            this.btnModificarCaja.Click += new System.EventHandler(this.btnModificarCaja_Click);
+            // 
+            // btnEliminarCaja
+            // 
+            this.btnEliminarCaja.Location = new System.Drawing.Point(444, 121);
+            this.btnEliminarCaja.Name = "btnEliminarCaja";
+            this.btnEliminarCaja.Size = new System.Drawing.Size(118, 23);
+            this.btnEliminarCaja.TabIndex = 8;
+            this.btnEliminarCaja.Text = "Eliminar Caja";
+            this.btnEliminarCaja.UseVisualStyleBackColor = true;
+            this.btnEliminarCaja.Click += new System.EventHandler(this.btnEliminarCaja_Click);
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(411, 341);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(151, 23);
+            this.btnMenuPrincipal.TabIndex = 9;
+            this.btnMenuPrincipal.Text = "Volver al menu principal";
+            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(27, 346);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
+            this.lblMensaje.TabIndex = 10;
             // 
             // colDescripcion
             // 
@@ -110,70 +174,49 @@
             this.colPersonaCaja.Name = "colPersonaCaja";
             this.colPersonaCaja.ReadOnly = true;
             // 
-            // btnLimpiarCampos
+            // colEstado
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(30, 76);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(106, 23);
-            this.btnLimpiarCampos.TabIndex = 5;
-            this.btnLimpiarCampos.Text = "Limpiar Campos";
-            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
-            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            this.colEstado.DataPropertyName = "nombreEstado";
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
             // 
-            // btnInsertarCaja
+            // label3
             // 
-            this.btnInsertarCaja.Location = new System.Drawing.Point(167, 76);
-            this.btnInsertarCaja.Name = "btnInsertarCaja";
-            this.btnInsertarCaja.Size = new System.Drawing.Size(108, 23);
-            this.btnInsertarCaja.TabIndex = 6;
-            this.btnInsertarCaja.Text = "Nueva Caja";
-            this.btnInsertarCaja.UseVisualStyleBackColor = true;
-            this.btnInsertarCaja.Click += new System.EventHandler(this.btnInsertarCaja_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(148, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Estado / mostrar por";
             // 
-            // btnModificarCaja
+            // cboEstado
             // 
-            this.btnModificarCaja.Location = new System.Drawing.Point(302, 76);
-            this.btnModificarCaja.Name = "btnModificarCaja";
-            this.btnModificarCaja.Size = new System.Drawing.Size(113, 23);
-            this.btnModificarCaja.TabIndex = 7;
-            this.btnModificarCaja.Text = "Modificar Caja";
-            this.btnModificarCaja.UseVisualStyleBackColor = true;
-            this.btnModificarCaja.Click += new System.EventHandler(this.btnModificarCaja_Click);
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(281, 73);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(121, 21);
+            this.cboEstado.TabIndex = 12;
             // 
-            // btnEliminarCaja
+            // btnMostrarEstado
             // 
-            this.btnEliminarCaja.Location = new System.Drawing.Point(444, 76);
-            this.btnEliminarCaja.Name = "btnEliminarCaja";
-            this.btnEliminarCaja.Size = new System.Drawing.Size(118, 23);
-            this.btnEliminarCaja.TabIndex = 8;
-            this.btnEliminarCaja.Text = "Eliminar Caja";
-            this.btnEliminarCaja.UseVisualStyleBackColor = true;
-            this.btnEliminarCaja.Click += new System.EventHandler(this.btnEliminarCaja_Click);
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(411, 296);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(151, 23);
-            this.btnMenuPrincipal.TabIndex = 9;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
-            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(27, 301);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
-            this.lblMensaje.TabIndex = 10;
+            this.btnMostrarEstado.Location = new System.Drawing.Point(408, 71);
+            this.btnMostrarEstado.Name = "btnMostrarEstado";
+            this.btnMostrarEstado.Size = new System.Drawing.Size(86, 23);
+            this.btnMostrarEstado.TabIndex = 13;
+            this.btnMostrarEstado.Text = "Mostrar";
+            this.btnMostrarEstado.UseVisualStyleBackColor = true;
+            this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
             // 
             // MantenimientoCajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 341);
+            this.ClientSize = new System.Drawing.Size(594, 390);
+            this.Controls.Add(this.btnMostrarEstado);
+            this.Controls.Add(this.cboEstado);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnMenuPrincipal);
             this.Controls.Add(this.btnEliminarCaja);
@@ -205,13 +248,17 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cboUsuarios;
         private System.Windows.Forms.DataGridView dgvCajas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonaCaja;
         private System.Windows.Forms.Button btnLimpiarCampos;
         private System.Windows.Forms.Button btnInsertarCaja;
         private System.Windows.Forms.Button btnModificarCaja;
         private System.Windows.Forms.Button btnEliminarCaja;
         private System.Windows.Forms.Button btnMenuPrincipal;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonaCaja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboEstado;
+        private System.Windows.Forms.Button btnMostrarEstado;
     }
 }

@@ -22,10 +22,22 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarUsuarioPorId(nombreUsuario);
         }
 
+        public int ObtenerCajaPorUsuario(String nombreUsuario)
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            return datos.SeleccionarCajaPorUsuario(nombreUsuario);
+        }
+
         public List<Usuario> ObtenerTodosUsuarios()
         {
             UsuarioDatos datos = new UsuarioDatos();
             return datos.SeleccionarTodosUsuario();
+        }
+
+        public List<Usuario> ObtenerTodosUsuarios(int estado)
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            return datos.SeleccionarTodosUsuario(estado);
         }
 
         public List<Usuario> ObtenerTodosUsuarios2()
@@ -44,6 +56,12 @@ namespace Sisfacturacion.Logica
         {
             UsuarioDatos datos = new UsuarioDatos();
             datos.Modificar(usuario);
+        }
+
+        public void ModificarUsuario2(Usuario usuario)
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            datos.Modificar2(usuario);
         }
 
         public void EliminarUsuario(String nombreUsuario)

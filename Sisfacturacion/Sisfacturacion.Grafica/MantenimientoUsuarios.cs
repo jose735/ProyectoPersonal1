@@ -25,7 +25,9 @@ namespace Sisfacturacion.Grafica
         {
             //no genera columnas de manera automatica
             dgvUsuarios.AutoGenerateColumns = false;
+            btnModificarEstado.Enabled = false;
             refrescar();
+            cargarCombo();
             limpiarCampos();
         }
 
@@ -37,8 +39,16 @@ namespace Sisfacturacion.Grafica
             cboTipoUsuario.ValueMember = "idTipoUsuario";
 
             //Carga el datagridview de usuarios
-            dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios();
+            dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios(1);
+        }
 
+        public void cargarCombo()
+        {
+            //carga de combo de estado
+            cboEstado.Items.Add("Seleccionar Estado");
+            cboEstado.Items.Add("Activo");
+            cboEstado.Items.Add("Inactivo");
+            cboEstado.Items.Add("Todos");
         }
 
 
@@ -50,6 +60,7 @@ namespace Sisfacturacion.Grafica
             txtNombreCompleto.Text = "";
             cboTipoUsuario.SelectedIndex = 0;
             lblMensaje.Text = "";
+            cboEstado.SelectedIndex = 0;
         }
 
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
@@ -79,6 +90,16 @@ namespace Sisfacturacion.Grafica
                 {
                     cboTipoUsuario.SelectedIndex = 2;
                 }
+
+                //obtiene el estado seleccionado
+                for (int i = 0; i < cboEstado.Items.Count; i++)
+                {
+                    String estado = cboEstado.Items[i].ToString();
+                    if (u.nombreEstado == estado)
+                    {
+                        cboEstado.SelectedIndex = i;
+                    }
+                }
             }
         }
 
@@ -106,6 +127,7 @@ namespace Sisfacturacion.Grafica
                     u.contrasenna = txtContrasenna.Text;
                     u.nombreCompleto = txtNombreCompleto.Text;
                     u.idTipoUsuario = Convert.ToInt32(cboTipoUsuario.SelectedValue);
+                    u.estado = 1;
 
                     //inserta al usuario
                     uL.InsertarUsuario(u);
@@ -127,10 +149,29 @@ namespace Sisfacturacion.Grafica
             else
             {
                 //elimina al usuario
-                uL.EliminarUsuario(txtNombreUsuario.Text);
-                lblMensaje.ForeColor = Color.Green;
-                lblMensaje.Text = "Usuario eliminado exitosamente";
-                refrescar();
+                if (uL.ObtenerCajaPorUsuario(txtNombreUsuario.Text) > 0)
+                {
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "Lo sentimos, no se puede eliminar a este usuario debido a que tiene una caja asignada";
+                }
+                else
+                {
+                    if (txtNombreUsuario.Text == InicioSesion.nombreUsuario)
+                    {
+                        lblMensaje.ForeColor = Color.Red;
+                        lblMensaje.Text = "No se puede eliminar este usuario debido a que esta activo en este momento";
+                    }
+                    else
+                    {
+                        Usuario u = new Usuario();
+                        u.nombreUsuario = txtNombreUsuario.Text;
+                        u.estado = 2;
+                        uL.ModificarUsuario2(u);
+                        lblMensaje.ForeColor = Color.Green;
+                        lblMensaje.Text = "Usuario eliminado exitosamente";
+                        refrescar();
+                    }
+                }
             }
         }
 
@@ -153,6 +194,53 @@ namespace Sisfacturacion.Grafica
             Principal p = new Principal();
             p.Show();
             this.Hide();
+        }
+
+        private void btnModificarEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarUsuarios_Click(object sender, EventArgs e)
+        {
+            if (cboEstado.SelectedIndex == 0)
+            {
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "Por favor, seleccione un estado";
+            }
+
+            if (cboEstado.SelectedIndex == 1)
+            {
+                btnModificarEstado.Enabled = false;
+                dgvUsuarios.DataSource= null;
+                dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios(1);
+            }
+
+            if (cboEstado.SelectedIndex == 2)
+            {
+                btnModificarEstado.Enabled = true;
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios(2);
+            }
+
+            if (cboEstado.SelectedIndex == 3)
+            {
+                btnModificarEstado.Enabled = true;
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios();
+            }
+        }
+
+        private void btnModificarEstado_Click_1(object sender, EventArgs e)
+        {
+            Usuario u = new Usuario();
+            u.nombreUsuario = txtNombreUsuario.Text;
+            u.estado = 1;
+            uL.ModificarUsuario2(u);
+            lblMensaje.ForeColor = Color.Green;
+            lblMensaje.Text = "Usuario activado exitosamente";
+            btnModificarEstado.Enabled = false;
+            refrescar();
         }
     }
 }

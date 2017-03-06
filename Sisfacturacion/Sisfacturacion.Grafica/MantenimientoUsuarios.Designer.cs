@@ -37,15 +37,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.colNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colContrasenna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsertarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.colNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colContrasenna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnMostrarUsuarios = new System.Windows.Forms.Button();
+            this.btnModificarEstado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +133,8 @@
             this.colNombreUsuario,
             this.colNombreCompleto,
             this.colContrasenna,
-            this.colTipoUsuario});
+            this.colTipoUsuario,
+            this.colEstado});
             this.dgvUsuarios.Location = new System.Drawing.Point(15, 224);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
@@ -138,39 +144,11 @@
             this.dgvUsuarios.TabIndex = 8;
             this.dgvUsuarios.SelectionChanged += new System.EventHandler(this.dgvUsuarios_SelectionChanged);
             // 
-            // colNombreUsuario
-            // 
-            this.colNombreUsuario.DataPropertyName = "nombreUsuario";
-            this.colNombreUsuario.HeaderText = "Nombre de Usuario";
-            this.colNombreUsuario.Name = "colNombreUsuario";
-            this.colNombreUsuario.ReadOnly = true;
-            // 
-            // colNombreCompleto
-            // 
-            this.colNombreCompleto.DataPropertyName = "nombreCompleto";
-            this.colNombreCompleto.HeaderText = "Nombre Completo";
-            this.colNombreCompleto.Name = "colNombreCompleto";
-            this.colNombreCompleto.ReadOnly = true;
-            // 
-            // colContrasenna
-            // 
-            this.colContrasenna.DataPropertyName = "contrasenna";
-            this.colContrasenna.HeaderText = "Clave de Acceso";
-            this.colContrasenna.Name = "colContrasenna";
-            this.colContrasenna.ReadOnly = true;
-            // 
-            // colTipoUsuario
-            // 
-            this.colTipoUsuario.DataPropertyName = "nombreTipoUsuario";
-            this.colTipoUsuario.HeaderText = "Tipo de Usuario";
-            this.colTipoUsuario.Name = "colTipoUsuario";
-            this.colTipoUsuario.ReadOnly = true;
-            // 
             // btnInsertarUsuario
             // 
-            this.btnInsertarUsuario.Location = new System.Drawing.Point(246, 182);
+            this.btnInsertarUsuario.Location = new System.Drawing.Point(179, 182);
             this.btnInsertarUsuario.Name = "btnInsertarUsuario";
-            this.btnInsertarUsuario.Size = new System.Drawing.Size(155, 23);
+            this.btnInsertarUsuario.Size = new System.Drawing.Size(140, 23);
             this.btnInsertarUsuario.TabIndex = 9;
             this.btnInsertarUsuario.Text = "Nuevo Usuario";
             this.btnInsertarUsuario.UseVisualStyleBackColor = true;
@@ -178,9 +156,9 @@
             // 
             // btnEliminarUsuario
             // 
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(472, 182);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(512, 182);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
-            this.btnEliminarUsuario.Size = new System.Drawing.Size(167, 23);
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(135, 23);
             this.btnEliminarUsuario.TabIndex = 10;
             this.btnEliminarUsuario.Text = "Eliminar Usuario";
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
@@ -210,17 +188,94 @@
             // 
             this.btnLimpiarCampos.Location = new System.Drawing.Point(15, 182);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(166, 23);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(131, 23);
             this.btnLimpiarCampos.TabIndex = 13;
             this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(287, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Estado / Mostrar por";
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(420, 138);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(137, 21);
+            this.cboEstado.TabIndex = 15;
+            // 
+            // colNombreUsuario
+            // 
+            this.colNombreUsuario.DataPropertyName = "nombreUsuario";
+            this.colNombreUsuario.HeaderText = "Nombre de Usuario";
+            this.colNombreUsuario.Name = "colNombreUsuario";
+            this.colNombreUsuario.ReadOnly = true;
+            // 
+            // colNombreCompleto
+            // 
+            this.colNombreCompleto.DataPropertyName = "nombreCompleto";
+            this.colNombreCompleto.HeaderText = "Nombre Completo";
+            this.colNombreCompleto.Name = "colNombreCompleto";
+            this.colNombreCompleto.ReadOnly = true;
+            // 
+            // colContrasenna
+            // 
+            this.colContrasenna.DataPropertyName = "contrasenna";
+            this.colContrasenna.HeaderText = "Clave de Acceso";
+            this.colContrasenna.Name = "colContrasenna";
+            this.colContrasenna.ReadOnly = true;
+            // 
+            // colTipoUsuario
+            // 
+            this.colTipoUsuario.DataPropertyName = "nombreTipoUsuario";
+            this.colTipoUsuario.HeaderText = "Tipo de Usuario";
+            this.colTipoUsuario.Name = "colTipoUsuario";
+            this.colTipoUsuario.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            this.colEstado.DataPropertyName = "nombreEstado";
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            // 
+            // btnMostrarUsuarios
+            // 
+            this.btnMostrarUsuarios.Location = new System.Drawing.Point(564, 136);
+            this.btnMostrarUsuarios.Name = "btnMostrarUsuarios";
+            this.btnMostrarUsuarios.Size = new System.Drawing.Size(105, 23);
+            this.btnMostrarUsuarios.TabIndex = 16;
+            this.btnMostrarUsuarios.Text = "Mostrar";
+            this.btnMostrarUsuarios.UseVisualStyleBackColor = true;
+            this.btnMostrarUsuarios.Click += new System.EventHandler(this.btnMostrarUsuarios_Click);
+            // 
+            // btnModificarEstado
+            // 
+            this.btnModificarEstado.Location = new System.Drawing.Point(350, 182);
+            this.btnModificarEstado.Name = "btnModificarEstado";
+            this.btnModificarEstado.Size = new System.Drawing.Size(134, 23);
+            this.btnModificarEstado.TabIndex = 17;
+            this.btnModificarEstado.Text = "Activar Usuario";
+            this.btnModificarEstado.UseVisualStyleBackColor = true;
+            this.btnModificarEstado.Click += new System.EventHandler(this.btnModificarEstado_Click_1);
             // 
             // MantenimientoUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 429);
+            this.Controls.Add(this.btnModificarEstado);
+            this.Controls.Add(this.btnMostrarUsuarios);
+            this.Controls.Add(this.cboEstado);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnMenuPrincipal);
@@ -258,14 +313,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContrasenna;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoUsuario;
         private System.Windows.Forms.Button btnInsertarUsuario;
         private System.Windows.Forms.Button btnEliminarUsuario;
         private System.Windows.Forms.Button btnMenuPrincipal;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreCompleto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colContrasenna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboEstado;
+        private System.Windows.Forms.Button btnMostrarUsuarios;
+        private System.Windows.Forms.Button btnModificarEstado;
     }
 }

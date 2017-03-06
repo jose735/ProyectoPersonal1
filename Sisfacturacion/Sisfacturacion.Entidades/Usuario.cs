@@ -14,5 +14,7 @@ namespace Sisfacturacion.Entidades
         public String nombreCompleto { get; set; }
         public int idTipoUsuario { get; set; }
         public String nombreTipoUsuario { get; set; }
+        public int estado { get; set; }
+        public String nombreEstado { get; set; }
     }
 }

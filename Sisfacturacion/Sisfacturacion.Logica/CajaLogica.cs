@@ -22,6 +22,12 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarTodosCaja();
         }
 
+        public List<Caja> ObtenerTodosCajas(int estado)
+        {
+            CajaDatos datos = new CajaDatos();
+            return datos.SeleccionarTodosCaja(estado);
+        }
+
         public void InsertarCaja(Caja caja)
         {
             CajaDatos datos = new CajaDatos();

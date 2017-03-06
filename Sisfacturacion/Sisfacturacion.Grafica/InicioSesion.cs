@@ -51,15 +51,23 @@ namespace Sisfacturacion.Grafica
             {
                 if (usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).Count > 0)
                 {
-                    Usuario u = new Usuario();
-                    u = usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).ElementAt(0);
-                    nombreDeUsuario = u.nombreCompleto;
-                    nombreUsuario = u.nombreUsuario;
-                    tipoDeUsuario = u.idTipoUsuario;
-                    ind2 = true;
-                    Principal p = new Principal();
-                    p.Show();
-                    this.Hide();
+                    Usuario u1 = usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).ElementAt(0);
+                    if (u1.estado == 2)
+                    {
+                        lblMensaje.Text = "Usuario inactivo, no puede iniciar sesión, por favor, active su cuenta";
+                    }
+                    else
+                    {
+                        Usuario u = new Usuario();
+                        u = usuarioL.ObtenerUsuario(txtNombreUsuario.Text, txtContrasenna.Text).ElementAt(0);
+                        nombreDeUsuario = u.nombreCompleto;
+                        nombreUsuario = u.nombreUsuario;
+                        tipoDeUsuario = u.idTipoUsuario;
+                        ind2 = true;
+                        Principal p = new Principal();
+                        p.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {
