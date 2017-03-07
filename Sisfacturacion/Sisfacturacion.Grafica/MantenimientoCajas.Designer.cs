@@ -33,15 +33,15 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cboUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvCajas = new System.Windows.Forms.DataGridView();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPersonaCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnInsertarCaja = new System.Windows.Forms.Button();
             this.btnModificarCaja = new System.Windows.Forms.Button();
             this.btnEliminarCaja = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPersonaCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.btnMostrarEstado = new System.Windows.Forms.Button();
@@ -100,6 +100,27 @@
             this.dgvCajas.Size = new System.Drawing.Size(506, 150);
             this.dgvCajas.TabIndex = 4;
             this.dgvCajas.SelectionChanged += new System.EventHandler(this.dgvCajas_SelectionChanged);
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.DataPropertyName = "descripcion";
+            this.colDescripcion.HeaderText = "Nombre de caja";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            // 
+            // colPersonaCaja
+            // 
+            this.colPersonaCaja.DataPropertyName = "nombreCompleto";
+            this.colPersonaCaja.HeaderText = "Persona en caja";
+            this.colPersonaCaja.Name = "colPersonaCaja";
+            this.colPersonaCaja.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            this.colEstado.DataPropertyName = "nombreEstado";
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
             // 
             // btnLimpiarCampos
             // 
@@ -160,27 +181,6 @@
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 10;
             // 
-            // colDescripcion
-            // 
-            this.colDescripcion.DataPropertyName = "descripcion";
-            this.colDescripcion.HeaderText = "Nombre de caja";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.ReadOnly = true;
-            // 
-            // colPersonaCaja
-            // 
-            this.colPersonaCaja.DataPropertyName = "nombreCompleto";
-            this.colPersonaCaja.HeaderText = "Persona en caja";
-            this.colPersonaCaja.Name = "colPersonaCaja";
-            this.colPersonaCaja.ReadOnly = true;
-            // 
-            // colEstado
-            // 
-            this.colEstado.DataPropertyName = "nombreEstado";
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.ReadOnly = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -231,7 +231,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MantenimientoCajas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MantenimientoCajas";
+            this.Text = "Mantenimiento de Cajas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoCajas_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MantenimientoCajas_FormClosed);
             this.Load += new System.EventHandler(this.MantenimientoCajas_Load);

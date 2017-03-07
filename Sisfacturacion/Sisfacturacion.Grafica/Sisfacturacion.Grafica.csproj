@@ -64,6 +64,12 @@
     <Compile Include="MantenimientoCajas.Designer.cs">
       <DependentUpon>MantenimientoCajas.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoCiudad.Designer.cs">
+      <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCajas.resx">
       <DependentUpon>MantenimientoCajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoCiudad.resx">
+      <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoUsuarios.resx">
       <DependentUpon>MantenimientoUsuarios.cs</DependentUpon>
