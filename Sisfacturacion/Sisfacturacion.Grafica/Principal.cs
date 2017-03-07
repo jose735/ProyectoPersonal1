@@ -96,5 +96,12 @@ namespace Sisfacturacion.Grafica
             mc.Show();
             this.Hide();
         }
+
+        private void ciudadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoCiudad mc = new MantenimientoCiudad();
+            mc.Show();
+            this.Hide();
+        }
     }
 }
