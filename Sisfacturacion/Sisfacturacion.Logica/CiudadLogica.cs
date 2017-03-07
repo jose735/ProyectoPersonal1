@@ -16,6 +16,12 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarCiudadPorId(idCiudad);
         }
 
+        public int ObtenerCiudadPorProveedor(int idCiudad)
+        {
+            CiudadDatos datos = new CiudadDatos();
+            return datos.SeleccionarCiudadPorProveedor(idCiudad);
+        }
+
         public List<Ciudad> ObtenerTodosCiudad()
         {
             CiudadDatos datos = new CiudadDatos();

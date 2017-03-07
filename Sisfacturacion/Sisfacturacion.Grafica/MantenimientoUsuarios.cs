@@ -129,11 +129,19 @@ namespace Sisfacturacion.Grafica
                     u.idTipoUsuario = Convert.ToInt32(cboTipoUsuario.SelectedValue);
                     u.estado = 1;
 
-                    //inserta al usuario
-                    uL.InsertarUsuario(u);
-                    lblMensaje.ForeColor = Color.Green;
-                    lblMensaje.Text = "Usuario registrado exitosamente";
-                    refrescar();
+                    if (InicioSesion.tipoDeUsuario == 2 && u.idTipoUsuario == 3)
+                    {
+                        //inserta al usuario
+                        uL.InsertarUsuario(u);
+                        lblMensaje.ForeColor = Color.Green;
+                        lblMensaje.Text = "Usuario registrado exitosamente";
+                        refrescar();
+                    }
+                    else
+                    {
+                        lblMensaje.ForeColor = Color.Red;
+                        lblMensaje.Text = "Usuario no autorizado a registrar administradores o suspervisores, unicamente cajeros";
+                    }
                 }
             }
         }
@@ -163,13 +171,22 @@ namespace Sisfacturacion.Grafica
                     }
                     else
                     {
+                        Usuario u1 = (Usuario)dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].DataBoundItem;
                         Usuario u = new Usuario();
                         u.nombreUsuario = txtNombreUsuario.Text;
                         u.estado = 2;
-                        uL.ModificarUsuario2(u);
-                        lblMensaje.ForeColor = Color.Green;
-                        lblMensaje.Text = "Usuario eliminado exitosamente";
-                        refrescar();
+                        if (InicioSesion.tipoDeUsuario == 2 && u1.nombreTipoUsuario == "Cajero")
+                        {
+                            uL.ModificarUsuario2(u);
+                            lblMensaje.ForeColor = Color.Green;
+                            lblMensaje.Text = "Usuario eliminado exitosamente";
+                            refrescar();
+                        }
+                        else
+                        {
+                            lblMensaje.ForeColor = Color.Red;
+                            lblMensaje.Text = "Usuario no autorizado a eliminar administradores o suspervisores, unicamente cajeros";
+                        }
                     }
                 }
             }

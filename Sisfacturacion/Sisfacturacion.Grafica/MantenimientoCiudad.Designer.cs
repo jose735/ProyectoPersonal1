@@ -38,13 +38,14 @@
             this.btnInsertarCiudad = new System.Windows.Forms.Button();
             this.btnModificarCiudad = new System.Windows.Forms.Button();
             this.btnMostrarEstado = new System.Windows.Forms.Button();
-            this.dgvCiudad = new System.Windows.Forms.DataGridView();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.btnEliminarCiudad = new System.Windows.Forms.Button();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.dgvCiudades = new System.Windows.Forms.DataGridView();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCiudad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCiudades)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -139,26 +140,9 @@
             this.btnMostrarEstado.UseVisualStyleBackColor = true;
             this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
             // 
-            // dgvCiudad
-            // 
-            this.dgvCiudad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCiudad.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCiudad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCiudad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colDescripcion,
-            this.colEstado});
-            this.dgvCiudad.Location = new System.Drawing.Point(34, 158);
-            this.dgvCiudad.Name = "dgvCiudad";
-            this.dgvCiudad.RowHeadersVisible = false;
-            this.dgvCiudad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCiudad.Size = new System.Drawing.Size(509, 150);
-            this.dgvCiudad.TabIndex = 10;
-            this.dgvCiudad.SelectionChanged += new System.EventHandler(this.dgvCiudad_SelectionChanged);
-            // 
             // btnMenuPrincipal
             // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(397, 333);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(398, 361);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.Size = new System.Drawing.Size(146, 23);
             this.btnMenuPrincipal.TabIndex = 11;
@@ -176,32 +160,63 @@
             this.btnEliminarCiudad.UseVisualStyleBackColor = true;
             this.btnEliminarCiudad.Click += new System.EventHandler(this.btnEliminarCiudad_Click);
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(12, 330);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
+            this.lblMensaje.TabIndex = 13;
+            // 
+            // dgvCiudades
+            // 
+            this.dgvCiudades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCiudades.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
+            this.colDescripcion,
+            this.colEstado});
+            this.dgvCiudades.Location = new System.Drawing.Point(34, 154);
+            this.dgvCiudades.Name = "dgvCiudades";
+            this.dgvCiudades.ReadOnly = true;
+            this.dgvCiudades.RowHeadersVisible = false;
+            this.dgvCiudades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCiudades.Size = new System.Drawing.Size(506, 150);
+            this.dgvCiudades.TabIndex = 14;
+            this.dgvCiudades.SelectionChanged += new System.EventHandler(this.dgvCiudades_SelectionChanged);
+            // 
             // colCodigo
             // 
             this.colCodigo.DataPropertyName = "idCiudad";
             this.colCodigo.HeaderText = "Código de ciudad";
             this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
             // 
             // colDescripcion
             // 
             this.colDescripcion.DataPropertyName = "descripcion";
             this.colDescripcion.HeaderText = "Nombre de la ciudad";
             this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
             // 
             // colEstado
             // 
             this.colEstado.DataPropertyName = "nombreEstado";
             this.colEstado.HeaderText = "Estado";
             this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
             // 
             // MantenimientoCiudad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 388);
+            this.ClientSize = new System.Drawing.Size(579, 411);
+            this.Controls.Add(this.dgvCiudades);
+            this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnEliminarCiudad);
             this.Controls.Add(this.btnMenuPrincipal);
-            this.Controls.Add(this.dgvCiudad);
             this.Controls.Add(this.btnMostrarEstado);
             this.Controls.Add(this.btnModificarCiudad);
             this.Controls.Add(this.btnInsertarCiudad);
@@ -218,7 +233,7 @@
             this.Text = "Mantenimiento de Ciudad";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MantenimientoCiudad_FormClosed);
             this.Load += new System.EventHandler(this.MantenimientoCiudad_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCiudad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCiudades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,9 +251,10 @@
         private System.Windows.Forms.Button btnInsertarCiudad;
         private System.Windows.Forms.Button btnModificarCiudad;
         private System.Windows.Forms.Button btnMostrarEstado;
-        private System.Windows.Forms.DataGridView dgvCiudad;
         private System.Windows.Forms.Button btnMenuPrincipal;
         private System.Windows.Forms.Button btnEliminarCiudad;
+        private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.DataGridView dgvCiudades;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;

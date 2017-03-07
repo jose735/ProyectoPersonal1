@@ -62,6 +62,53 @@ namespace Sisfacturacion.Datos
 
         }
 
+        public int SeleccionarCiudadPorProveedor(int idCiudad)
+        {
+            int cont = 0;
+            //Creamos el objeto que se conecta con la base de datos
+            //Es necesario enciarle la cadena de conexion para que
+            //conozca cual es la base de datos
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+
+            try
+            {
+                // Se debe abrir la conexión
+                conexion.Open();
+                //Sentencia que se necesita ejecutar
+                string sql = "PA_Seleccionar_Ciudad_Por_Proveedor";
+                //El comando es el objeto que ejecuta la sentencia
+                SqlCommand comando = new SqlCommand(sql, conexion);
+                // Nota: es obligatorio cambiar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idCiudad", idCiudad);
+
+
+                // Ejecutar el comando de modo que retorne datos
+                SqlDataReader reader = comando.ExecuteReader();
+
+
+
+                //lee todas las filas resultado de la consulta
+                while (reader.Read())
+                {
+                    // Se extrae la informacion de la tupla y se convierte a un objeto
+                    cont++;
+                }
+
+                return cont;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                conexion.Close();
+            }
+
+        }
+
         public List<Ciudad> SeleccionarTodosCiudad()
         {
             List<Ciudad> lista = new List<Ciudad>();
@@ -193,7 +240,7 @@ namespace Sisfacturacion.Datos
                 // Se debe abrir la conexión
                 conexion.Open();
                 //Sentencia que se necesita ejecutar
-                string sql = "PA_Insertar_Caja";
+                string sql = "PA_Insertar_Ciudad";
                 //El comando es el objeto que ejecuta la sebntencia
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 // Nota: es obligatorio cambiar el tipo de comando
@@ -229,7 +276,7 @@ namespace Sisfacturacion.Datos
                 // Se debe abrir la conexión
                 conexion.Open();
                 //Sentencia que se necesita ejecutar
-                string sql = "PA_Modificar_Caja";
+                string sql = "PA_Modificar_Ciudad";
                 //El comando es el objeto que ejecuta la sebntencia
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 // Nota: es obligatorio cambiar el tipo de comando
