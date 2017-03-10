@@ -10,7 +10,7 @@ namespace Sisfacturacion.Datos
 {
     public class ProveedorDatos
     {
-        public List<Proveedor> SeleccionarProveedorPorId(int idProveedor)
+        public List<Proveedor> SeleccionarProveedorPorId(String idProveedor)
         {
             List<Proveedor> lista = new List<Proveedor>();
             //Creamos el objeto que se conecta con la base de datos
@@ -41,7 +41,7 @@ namespace Sisfacturacion.Datos
                 {
                     // Se extrae la informacion de la tupla y se convierte a un objeto
                     Proveedor proveedor = new Proveedor();
-                    proveedor.idCiudad = Convert.ToInt32(reader["idProveedor"].ToString());
+                    proveedor.idProveedor = reader["idProveedor"].ToString();
                     proveedor.nombre = reader["nombre"].ToString();
                     proveedor.nombreRepartidor = reader["nombreRepartidor"].ToString();
                     proveedor.idCiudad = Convert.ToInt32(reader["idCiudad"].ToString());
@@ -96,7 +96,7 @@ namespace Sisfacturacion.Datos
                 {
                     // Se extrae la informacion de la tupla y se convierte a un objeto
                     Proveedor proveedor = new Proveedor();
-                    proveedor.idCiudad = Convert.ToInt32(reader["Id"].ToString());
+                    proveedor.idProveedor = reader["Id"].ToString();
                     proveedor.nombre = reader["Nombre"].ToString();
                     proveedor.nombreRepartidor = reader["NombreRepartidor"].ToString();
                     proveedor.nombreCiudad = reader["Descripcion"].ToString();
@@ -160,7 +160,7 @@ namespace Sisfacturacion.Datos
                 {
                     // Se extrae la informacion de la tupla y se convierte a un objeto
                     Proveedor proveedor = new Proveedor();
-                    proveedor.idCiudad = Convert.ToInt32(reader["Id"].ToString());
+                    proveedor.idProveedor = reader["Id"].ToString();
                     proveedor.nombre = reader["Nombre"].ToString();
                     proveedor.nombreRepartidor = reader["NombreRepartidor"].ToString();
                     proveedor.nombreCiudad =reader["Descripcion"].ToString();

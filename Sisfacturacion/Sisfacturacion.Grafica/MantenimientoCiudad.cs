@@ -80,6 +80,8 @@ namespace Sisfacturacion.Grafica
                     //inserta la ciudad
                     cL.InsertarCiudad(c);
                     refrescar();
+                    lblMensaje.ForeColor = Color.Green;
+                    lblMensaje.Text = "Ciudad registrada exitosamente";
                 }
             }
         }

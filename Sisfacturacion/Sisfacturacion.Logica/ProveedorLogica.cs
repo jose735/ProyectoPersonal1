@@ -10,7 +10,7 @@ namespace Sisfacturacion.Logica
 {
     public class ProveedorLogica
     {
-        public List<Proveedor> ObtenerProveedor(int idProveedor)
+        public List<Proveedor> ObtenerProveedor(String idProveedor)
         {
             ProveedorDatos datos = new ProveedorDatos();
             return datos.SeleccionarProveedorPorId(idProveedor);
