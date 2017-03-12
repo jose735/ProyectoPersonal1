@@ -142,7 +142,17 @@ namespace Sisfacturacion.Grafica
 
                 if (cboEstado.SelectedIndex == 2)
                 {
-                    p.estado = 2;
+                    //verifica que algún producto este ligado al proveedor que se va a eliminar
+                    if (pL.ObtenerProductoPorProveedor(p1.idProveedor) > 0)
+                    {
+                        lblMensaje.ForeColor = Color.Red;
+                        lblMensaje.Text = "Lo sentimos, no se puede cambiar el estado de este proveedor por estar relacionado con varios productos";
+                        return;
+                    }
+                    else
+                    {
+                        p.estado = 2;
+                    }
                 }
 
                 if (cboEstado.SelectedIndex == 3)
@@ -170,31 +180,40 @@ namespace Sisfacturacion.Grafica
             {
                 Proveedor p1 = (Proveedor)dgvProveedores.Rows[dgvProveedores.SelectedRows[0].Index].DataBoundItem;
 
-                //creacion de la instancia de proveedor
-                Proveedor p = new Proveedor();
-                p.idProveedor = p1.idProveedor;
-                p.nombre = p1.nombre;
-                p.nombreRepartidor = p1.nombreRepartidor;
-                p.direccionLocal = p1.direccionLocal;
-                p.telefono = p1.telefono;
-                p.nombreEstado = p1.nombreEstado;
-                p.estado = 2;
-
-                //obtiene el usuario seleccionado
-                for (int i = 0; i < cboCiudad.Items.Count; i++)
+                //verifica que algún producto este ligado al proveedor que se va a eliminar
+                if (pL.ObtenerProductoPorProveedor(p1.idProveedor) > 0)
                 {
-                    Ciudad c = (Ciudad) cboCiudad.Items[i];
-                    if (c.descripcion == p1.nombreCiudad)
-                    {
-                        p.idCiudad = Convert.ToInt32(cboCiudad.SelectedValue);
-                    }
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "Lo sentimos, no se puede eliminar este proveedor por estar relacionado con varios productos";
                 }
+                else
+                {
+                    //creacion de la instancia de proveedor
+                    Proveedor p = new Proveedor();
+                    p.idProveedor = p1.idProveedor;
+                    p.nombre = p1.nombre;
+                    p.nombreRepartidor = p1.nombreRepartidor;
+                    p.direccionLocal = p1.direccionLocal;
+                    p.telefono = p1.telefono;
+                    p.nombreEstado = p1.nombreEstado;
+                    p.estado = 2;
 
-                //elimina el proveedor
-                pL.ModificarProveedor(p);
-                refrescar();
-                lblMensaje.ForeColor = Color.Green;
-                lblMensaje.Text = "Proveedor eliminado exitosamente";
+                    //obtiene el usuario seleccionado
+                    for (int i = 0; i < cboCiudad.Items.Count; i++)
+                    {
+                        Ciudad c = (Ciudad)cboCiudad.Items[i];
+                        if (c.descripcion == p1.nombreCiudad)
+                        {
+                            p.idCiudad = Convert.ToInt32(cboCiudad.SelectedValue);
+                        }
+                    }
+
+                    //elimina el proveedor
+                    pL.ModificarProveedor(p);
+                    refrescar();
+                    lblMensaje.ForeColor = Color.Green;
+                    lblMensaje.Text = "Proveedor eliminado exitosamente";
+                }
             }
         }
 

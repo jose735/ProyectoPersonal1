@@ -16,7 +16,7 @@ namespace Sisfacturacion.Entidades
 	    public String fechaVencimiento { get; set; } 
 	    public int idCategoria { get; set; }
         public String nombreCategoria { get; set; }
-        public int idProveedor { get; set; }
+        public String idProveedor { get; set; }
         public String nombreProveedor { get; set; }
 	    public int estado { get; set; }
         public String nombreEstado { get; set; }

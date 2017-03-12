@@ -16,6 +16,12 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarProveedorPorId(idProveedor);
         }
 
+        public int ObtenerProductoPorProveedor(String idProveedor)
+        {
+            ProveedorDatos datos = new ProveedorDatos();
+            return datos.SeleccionarProductoPorProveedor(idProveedor);
+        }
+
         public List<Proveedor> ObtenerTodosProveedor()
         {
             ProveedorDatos datos = new ProveedorDatos();

@@ -48,7 +48,7 @@ namespace Sisfacturacion.Datos
                     producto.fechaIngreso = reader["fechaIngreso"].ToString();
                     producto.fechaVencimiento = reader["fechaVencimiento"].ToString();
                     producto.idCategoria = Convert.ToInt32(reader["idCategoria"].ToString());
-                    producto.idProveedor = Convert.ToInt32(reader["idProveedor"].ToString());
+                    producto.idProveedor = reader["idProveedor"].ToString();
                     producto.estado = Convert.ToInt32(reader["estado"].ToString());
 
                     lista.Add(producto);

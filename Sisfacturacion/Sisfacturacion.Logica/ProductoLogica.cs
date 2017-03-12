@@ -39,5 +39,13 @@ namespace Sisfacturacion.Logica
             ProductoDatos datos = new ProductoDatos();
             datos.Modificar(producto);
         }
+
+        public double precioRealProducto(double precio, double porcentaje)
+        {
+            double total = 0;
+            double porc = porcentaje / 100;
+            total = precio + (precio * porc);
+            return total;
+        }
     }
 }

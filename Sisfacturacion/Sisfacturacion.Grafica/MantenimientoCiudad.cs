@@ -115,7 +115,16 @@ namespace Sisfacturacion.Grafica
 
                 if (cboEstado.SelectedIndex == 2)
                 {
-                    c.estado = 2;
+                    if (cL.ObtenerCiudadPorProveedor(Convert.ToInt32(txtCodigoCiudad.Text)) > 0)
+                    {
+                        lblMensaje.ForeColor = Color.Red;
+                        lblMensaje.Text = "Lo sentimos, no se puede cambiar el estado debido a que tiene un proveedor asignado";
+                        return;
+                    }
+                    else
+                    {
+                        c.estado = 2;
+                    }
                 }
 
                 if (cboEstado.SelectedIndex == 3)

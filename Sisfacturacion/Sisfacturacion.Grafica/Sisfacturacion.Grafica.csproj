@@ -70,6 +70,12 @@
     <Compile Include="MantenimientoCiudad.Designer.cs">
       <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoProductos.Designer.cs">
+      <DependentUpon>MantenimientoProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCiudad.resx">
       <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoProductos.resx">
+      <DependentUpon>MantenimientoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoProveedores.resx">
       <DependentUpon>MantenimientoProveedores.cs</DependentUpon>
