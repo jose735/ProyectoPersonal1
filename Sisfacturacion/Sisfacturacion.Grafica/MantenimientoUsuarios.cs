@@ -23,10 +23,13 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoUsuarios_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = uL.ObtenerTodosUsuarios(1).Count * 25;
+
             //no genera columnas de manera automatica
             dgvUsuarios.AutoGenerateColumns = false;
             btnModificarEstado.Enabled = false;
-            refrescar();
+            //refrescar();
             cargarCombo();
             limpiarCampos();
         }
@@ -44,6 +47,11 @@ namespace Sisfacturacion.Grafica
 
         public void cargarCombo()
         {
+            //Carga el combo de tipos de usuario
+            cboTipoUsuario.DataSource = tipoU.ObtenerTodosUsuarios();
+            cboTipoUsuario.DisplayMember = "descripcion";
+            cboTipoUsuario.ValueMember = "idTipoUsuario";
+
             //carga de combo de estado
             cboEstado.Items.Add("Seleccionar Estado");
             cboEstado.Items.Add("Activo");
@@ -258,6 +266,27 @@ namespace Sisfacturacion.Grafica
             lblMensaje.Text = "Usuario activado exitosamente";
             btnModificarEstado.Enabled = false;
             refrescar();
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%";
+            if (pbCarga.Value == 100)
+            {
+                dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios(1);
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de usuarios realizada exitosamente";
+                pbCarga.Visible = false;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
+
+            }
         }
     }
 }

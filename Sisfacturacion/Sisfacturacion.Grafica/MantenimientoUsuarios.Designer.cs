@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasenna = new System.Windows.Forms.TextBox();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
@@ -37,6 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.colNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colContrasenna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsertarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
@@ -44,13 +50,11 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.colNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colContrasenna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnMostrarUsuarios = new System.Windows.Forms.Button();
             this.btnModificarEstado = new System.Windows.Forms.Button();
+            this.pbCarga = new System.Windows.Forms.ProgressBar();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
+            this.tiempoCarga = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,74 +148,6 @@
             this.dgvUsuarios.TabIndex = 8;
             this.dgvUsuarios.SelectionChanged += new System.EventHandler(this.dgvUsuarios_SelectionChanged);
             // 
-            // btnInsertarUsuario
-            // 
-            this.btnInsertarUsuario.Location = new System.Drawing.Point(179, 182);
-            this.btnInsertarUsuario.Name = "btnInsertarUsuario";
-            this.btnInsertarUsuario.Size = new System.Drawing.Size(140, 23);
-            this.btnInsertarUsuario.TabIndex = 9;
-            this.btnInsertarUsuario.Text = "Nuevo Usuario";
-            this.btnInsertarUsuario.UseVisualStyleBackColor = true;
-            this.btnInsertarUsuario.Click += new System.EventHandler(this.btnInsertarUsuario_Click);
-            // 
-            // btnEliminarUsuario
-            // 
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(512, 182);
-            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
-            this.btnEliminarUsuario.Size = new System.Drawing.Size(135, 23);
-            this.btnEliminarUsuario.TabIndex = 10;
-            this.btnEliminarUsuario.Text = "Eliminar Usuario";
-            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
-            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(512, 394);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(157, 23);
-            this.btnMenuPrincipal.TabIndex = 11;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
-            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(12, 399);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
-            this.lblMensaje.TabIndex = 12;
-            // 
-            // btnLimpiarCampos
-            // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(15, 182);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(131, 23);
-            this.btnLimpiarCampos.TabIndex = 13;
-            this.btnLimpiarCampos.Text = "Limpiar campos";
-            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
-            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(287, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Estado / Mostrar por";
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(420, 138);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(137, 21);
-            this.cboEstado.TabIndex = 15;
-            // 
             // colNombreUsuario
             // 
             this.colNombreUsuario.DataPropertyName = "nombreUsuario";
@@ -247,6 +183,74 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
+            // btnInsertarUsuario
+            // 
+            this.btnInsertarUsuario.Location = new System.Drawing.Point(179, 182);
+            this.btnInsertarUsuario.Name = "btnInsertarUsuario";
+            this.btnInsertarUsuario.Size = new System.Drawing.Size(140, 23);
+            this.btnInsertarUsuario.TabIndex = 9;
+            this.btnInsertarUsuario.Text = "Nuevo Usuario";
+            this.btnInsertarUsuario.UseVisualStyleBackColor = true;
+            this.btnInsertarUsuario.Click += new System.EventHandler(this.btnInsertarUsuario_Click);
+            // 
+            // btnEliminarUsuario
+            // 
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(512, 182);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(135, 23);
+            this.btnEliminarUsuario.TabIndex = 10;
+            this.btnEliminarUsuario.Text = "Eliminar Usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(512, 444);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(157, 23);
+            this.btnMenuPrincipal.TabIndex = 11;
+            this.btnMenuPrincipal.Text = "Volver al menu principal";
+            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+            this.lblMensaje.Location = new System.Drawing.Point(12, 449);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
+            this.lblMensaje.TabIndex = 12;
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(15, 182);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(131, 23);
+            this.btnLimpiarCampos.TabIndex = 13;
+            this.btnLimpiarCampos.Text = "Limpiar campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(287, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Estado / Mostrar por";
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(420, 138);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(137, 21);
+            this.cboEstado.TabIndex = 15;
+            // 
             // btnMostrarUsuarios
             // 
             this.btnMostrarUsuarios.Location = new System.Drawing.Point(564, 136);
@@ -267,11 +271,32 @@
             this.btnModificarEstado.UseVisualStyleBackColor = true;
             this.btnModificarEstado.Click += new System.EventHandler(this.btnModificarEstado_Click_1);
             // 
+            // pbCarga
+            // 
+            this.pbCarga.Location = new System.Drawing.Point(118, 380);
+            this.pbCarga.Name = "pbCarga";
+            this.pbCarga.Size = new System.Drawing.Size(439, 23);
+            this.pbCarga.TabIndex = 18;
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Location = new System.Drawing.Point(330, 406);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
+            this.lblPorcentaje.TabIndex = 19;
+            // 
+            // tiempoCarga
+            // 
+            this.tiempoCarga.Tick += new System.EventHandler(this.tiempoCarga_Tick);
+            // 
             // MantenimientoUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 429);
+            this.ClientSize = new System.Drawing.Size(687, 479);
+            this.Controls.Add(this.lblPorcentaje);
+            this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.btnModificarEstado);
             this.Controls.Add(this.btnMostrarUsuarios);
             this.Controls.Add(this.cboEstado);
@@ -327,5 +352,8 @@
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Button btnMostrarUsuarios;
         private System.Windows.Forms.Button btnModificarEstado;
+        private System.Windows.Forms.ProgressBar pbCarga;
+        private System.Windows.Forms.Label lblPorcentaje;
+        private System.Windows.Forms.Timer tiempoCarga;
     }
 }

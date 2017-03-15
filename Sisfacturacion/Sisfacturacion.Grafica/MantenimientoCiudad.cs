@@ -29,8 +29,7 @@ namespace Sisfacturacion.Grafica
 
         public void refrescar()
         {
-            tiempoCarga.Interval = cL.ObtenerTodosCiudad(1).Count * 25;
-            //dgvCiudades.DataSource = cL.ObtenerTodosCiudad(1);
+            dgvCiudades.DataSource = cL.ObtenerTodosCiudad(1);
         }
 
         public void cargarCombo()
@@ -44,9 +43,10 @@ namespace Sisfacturacion.Grafica
         private void MantenimientoCiudad_Load(object sender, EventArgs e)
         {
             tiempoCarga.Start();
+            tiempoCarga.Interval = cL.ObtenerTodosCiudad(1).Count * 25;
             dgvCiudades.AutoGenerateColumns = false;
             cargarCombo();
-            refrescar();
+            //refrescar();
             LimpiarCampos();
         }
 
@@ -251,12 +251,16 @@ namespace Sisfacturacion.Grafica
         private void tiempoCarga_Tick(object sender, EventArgs e)
         {
             pbCarga.Increment(1);
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%";
             if (pbCarga.Value == 100)
             {
                 dgvCiudades.DataSource = cL.ObtenerTodosCiudad(1);
                 lblMensaje.ForeColor = Color.Green;
                 lblMensaje.Text = "Carga de ciudades realizada exitosamente";
                 pbCarga.Visible = false;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
+
             }
         }
     }
