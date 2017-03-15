@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbCarga = new System.Windows.Forms.ProgressBar();
+            this.tiempoCarga = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,7 +145,7 @@
             // 
             // btnMenuPrincipal
             // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(398, 361);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(398, 443);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.Size = new System.Drawing.Size(146, 23);
             this.btnMenuPrincipal.TabIndex = 11;
@@ -164,7 +167,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(12, 330);
+            this.lblMensaje.Location = new System.Drawing.Point(12, 412);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 13;
@@ -208,11 +211,23 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
+            // pbCarga
+            // 
+            this.pbCarga.Location = new System.Drawing.Point(34, 336);
+            this.pbCarga.Name = "pbCarga";
+            this.pbCarga.Size = new System.Drawing.Size(510, 23);
+            this.pbCarga.TabIndex = 15;
+            // 
+            // tiempoCarga
+            // 
+            this.tiempoCarga.Tick += new System.EventHandler(this.tiempoCarga_Tick);
+            // 
             // MantenimientoCiudad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 411);
+            this.ClientSize = new System.Drawing.Size(579, 491);
+            this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.dgvCiudades);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnEliminarCiudad);
@@ -258,5 +273,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.ProgressBar pbCarga;
+        private System.Windows.Forms.Timer tiempoCarga;
     }
 }
