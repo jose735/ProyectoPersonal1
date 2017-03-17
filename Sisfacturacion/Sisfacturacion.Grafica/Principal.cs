@@ -131,5 +131,12 @@ namespace Sisfacturacion.Grafica
             mc.Show();
             this.Hide();
         }
+
+        private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion f = new Facturacion();
+            f.Show();
+            this.Hide();
+        }
     }
 }
