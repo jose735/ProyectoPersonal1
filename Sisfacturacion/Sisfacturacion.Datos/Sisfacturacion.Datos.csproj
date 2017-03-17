@@ -44,6 +44,7 @@
     <Compile Include="CajaDatos.cs" />
     <Compile Include="CategoriaProductoDatos.cs" />
     <Compile Include="CiudadDatos.cs" />
+    <Compile Include="ClienteDatos.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ProductoDatos.cs" />
     <Compile Include="PromocionDatos.cs" />

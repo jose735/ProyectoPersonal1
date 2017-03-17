@@ -33,9 +33,18 @@
             this.lblMensaje = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPromociones = new System.Windows.Forms.DataGridView();
+            this.colCodigoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPorcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstadoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnInsertarPromocion = new System.Windows.Forms.Button();
             this.btnModificarPromocion = new System.Windows.Forms.Button();
@@ -44,15 +53,6 @@
             this.btnMostrarEstado = new System.Windows.Forms.Button();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.nudPorcentaje = new System.Windows.Forms.NumericUpDown();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCodigoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPorcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstadoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,7 +84,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(15, 565);
+            this.lblMensaje.Location = new System.Drawing.Point(15, 613);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 2;
@@ -117,122 +117,6 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(590, 150);
             this.dgvProductos.TabIndex = 4;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgvProductos);
-            this.groupBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 66);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 192);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lista productos";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgvPromociones);
-            this.groupBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 350);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(608, 186);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Productos con promociones";
-            // 
-            // dgvPromociones
-            // 
-            this.dgvPromociones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPromociones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPromociones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPromociones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigoProd,
-            this.colNombreProd,
-            this.colPorcentaje,
-            this.colEstadoProd});
-            this.dgvPromociones.Location = new System.Drawing.Point(6, 29);
-            this.dgvPromociones.Name = "dgvPromociones";
-            this.dgvPromociones.ReadOnly = true;
-            this.dgvPromociones.RowHeadersVisible = false;
-            this.dgvPromociones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPromociones.Size = new System.Drawing.Size(596, 133);
-            this.dgvPromociones.TabIndex = 7;
-            this.dgvPromociones.SelectionChanged += new System.EventHandler(this.dgvPromociones_SelectionChanged);
-            // 
-            // btnLimpiarCampos
-            // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(18, 307);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(123, 23);
-            this.btnLimpiarCampos.TabIndex = 7;
-            this.btnLimpiarCampos.Text = "LimpiarCampos";
-            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
-            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
-            // 
-            // btnInsertarPromocion
-            // 
-            this.btnInsertarPromocion.Location = new System.Drawing.Point(165, 307);
-            this.btnInsertarPromocion.Name = "btnInsertarPromocion";
-            this.btnInsertarPromocion.Size = new System.Drawing.Size(128, 23);
-            this.btnInsertarPromocion.TabIndex = 8;
-            this.btnInsertarPromocion.Text = "Nueva Promoción";
-            this.btnInsertarPromocion.UseVisualStyleBackColor = true;
-            this.btnInsertarPromocion.Click += new System.EventHandler(this.btnInsertarPromocion_Click);
-            // 
-            // btnModificarPromocion
-            // 
-            this.btnModificarPromocion.Location = new System.Drawing.Point(315, 307);
-            this.btnModificarPromocion.Name = "btnModificarPromocion";
-            this.btnModificarPromocion.Size = new System.Drawing.Size(139, 23);
-            this.btnModificarPromocion.TabIndex = 9;
-            this.btnModificarPromocion.Text = "Modificar Promoción";
-            this.btnModificarPromocion.UseVisualStyleBackColor = true;
-            this.btnModificarPromocion.Click += new System.EventHandler(this.btnModificarPromocion_Click);
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(474, 560);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(149, 23);
-            this.btnMenuPrincipal.TabIndex = 10;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
-            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
-            // btnEliminarPromocion
-            // 
-            this.btnEliminarPromocion.Location = new System.Drawing.Point(474, 307);
-            this.btnEliminarPromocion.Name = "btnEliminarPromocion";
-            this.btnEliminarPromocion.Size = new System.Drawing.Size(134, 23);
-            this.btnEliminarPromocion.TabIndex = 11;
-            this.btnEliminarPromocion.Text = "Eliminar Promoción";
-            this.btnEliminarPromocion.UseVisualStyleBackColor = true;
-            this.btnEliminarPromocion.Click += new System.EventHandler(this.btnEliminarPromocion_Click);
-            // 
-            // btnMostrarEstado
-            // 
-            this.btnMostrarEstado.Location = new System.Drawing.Point(426, 269);
-            this.btnMostrarEstado.Name = "btnMostrarEstado";
-            this.btnMostrarEstado.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrarEstado.TabIndex = 12;
-            this.btnMostrarEstado.Text = "Mostrar";
-            this.btnMostrarEstado.UseVisualStyleBackColor = true;
-            this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(299, 271);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(121, 21);
-            this.cboEstado.TabIndex = 13;
-            // 
-            // nudPorcentaje
-            // 
-            this.nudPorcentaje.Location = new System.Drawing.Point(165, 29);
-            this.nudPorcentaje.Name = "nudPorcentaje";
-            this.nudPorcentaje.Size = new System.Drawing.Size(48, 20);
-            this.nudPorcentaje.TabIndex = 14;
             // 
             // colCodigo
             // 
@@ -269,6 +153,47 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvProductos);
+            this.groupBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 66);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(602, 192);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lista productos";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvPromociones);
+            this.groupBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 398);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(608, 186);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Productos con promociones";
+            // 
+            // dgvPromociones
+            // 
+            this.dgvPromociones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPromociones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPromociones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPromociones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigoProd,
+            this.colNombreProd,
+            this.colPorcentaje,
+            this.colEstadoProd});
+            this.dgvPromociones.Location = new System.Drawing.Point(6, 32);
+            this.dgvPromociones.Name = "dgvPromociones";
+            this.dgvPromociones.ReadOnly = true;
+            this.dgvPromociones.RowHeadersVisible = false;
+            this.dgvPromociones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPromociones.Size = new System.Drawing.Size(596, 133);
+            this.dgvPromociones.TabIndex = 7;
+            this.dgvPromociones.SelectionChanged += new System.EventHandler(this.dgvPromociones_SelectionChanged);
+            // 
             // colCodigoProd
             // 
             this.colCodigoProd.DataPropertyName = "idProducto";
@@ -297,11 +222,92 @@
             this.colEstadoProd.Name = "colEstadoProd";
             this.colEstadoProd.ReadOnly = true;
             // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
+            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(123, 318);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(70, 61);
+            this.btnLimpiarCampos.TabIndex = 7;
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // btnInsertarPromocion
+            // 
+            this.btnInsertarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo;
+            this.btnInsertarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInsertarPromocion.Location = new System.Drawing.Point(221, 318);
+            this.btnInsertarPromocion.Name = "btnInsertarPromocion";
+            this.btnInsertarPromocion.Size = new System.Drawing.Size(74, 61);
+            this.btnInsertarPromocion.TabIndex = 8;
+            this.btnInsertarPromocion.UseVisualStyleBackColor = true;
+            this.btnInsertarPromocion.Click += new System.EventHandler(this.btnInsertarPromocion_Click);
+            // 
+            // btnModificarPromocion
+            // 
+            this.btnModificarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Editar;
+            this.btnModificarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModificarPromocion.Location = new System.Drawing.Point(325, 318);
+            this.btnModificarPromocion.Name = "btnModificarPromocion";
+            this.btnModificarPromocion.Size = new System.Drawing.Size(73, 61);
+            this.btnModificarPromocion.TabIndex = 9;
+            this.btnModificarPromocion.UseVisualStyleBackColor = true;
+            this.btnModificarPromocion.Click += new System.EventHandler(this.btnModificarPromocion_Click);
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
+            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(571, 590);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(52, 41);
+            this.btnMenuPrincipal.TabIndex = 10;
+            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
+            // 
+            // btnEliminarPromocion
+            // 
+            this.btnEliminarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar;
+            this.btnEliminarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminarPromocion.Location = new System.Drawing.Point(428, 318);
+            this.btnEliminarPromocion.Name = "btnEliminarPromocion";
+            this.btnEliminarPromocion.Size = new System.Drawing.Size(70, 61);
+            this.btnEliminarPromocion.TabIndex = 11;
+            this.btnEliminarPromocion.UseVisualStyleBackColor = true;
+            this.btnEliminarPromocion.Click += new System.EventHandler(this.btnEliminarPromocion_Click);
+            // 
+            // btnMostrarEstado
+            // 
+            this.btnMostrarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar;
+            this.btnMostrarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarEstado.Location = new System.Drawing.Point(428, 259);
+            this.btnMostrarEstado.Name = "btnMostrarEstado";
+            this.btnMostrarEstado.Size = new System.Drawing.Size(53, 43);
+            this.btnMostrarEstado.TabIndex = 12;
+            this.btnMostrarEstado.UseVisualStyleBackColor = true;
+            this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(299, 271);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(121, 21);
+            this.cboEstado.TabIndex = 13;
+            // 
+            // nudPorcentaje
+            // 
+            this.nudPorcentaje.Location = new System.Drawing.Point(165, 29);
+            this.nudPorcentaje.Name = "nudPorcentaje";
+            this.nudPorcentaje.Size = new System.Drawing.Size(48, 20);
+            this.nudPorcentaje.TabIndex = 14;
+            // 
             // MantenimientoPromociones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 595);
+            this.ClientSize = new System.Drawing.Size(635, 643);
             this.Controls.Add(this.nudPorcentaje);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.btnMostrarEstado);

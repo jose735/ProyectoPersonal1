@@ -276,6 +276,7 @@ namespace Sisfacturacion.Grafica
         private void tiempoCarga_Tick(object sender, EventArgs e)
         {
             pbCarga.Increment(1);
+            dgvUsuarios.Enabled = false;
             lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de usuarios, espere por favor";
             if (pbCarga.Value == 100)
             {
@@ -283,6 +284,7 @@ namespace Sisfacturacion.Grafica
                 lblMensaje.ForeColor = Color.Green;
                 lblMensaje.Text = "Carga de usuarios realizada exitosamente";
                 pbCarga.Visible = false;
+                dgvUsuarios.Enabled = true;
                 tiempoCarga.Stop();
                 lblPorcentaje.Text = "";
 

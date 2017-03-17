@@ -124,5 +124,12 @@ namespace Sisfacturacion.Grafica
             mp.Show();
             this.Hide();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoClientes mc = new MantenimientoClientes();
+            mc.Show();
+            this.Hide();
+        }
     }
 }

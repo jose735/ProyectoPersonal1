@@ -153,7 +153,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(12, 426);
+            this.lblMensaje.Location = new System.Drawing.Point(12, 455);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 8;
@@ -287,7 +287,7 @@
             this.colFechaIngreso,
             this.colFechaVencimiento,
             this.colEstado});
-            this.dgvProducto.Location = new System.Drawing.Point(12, 253);
+            this.dgvProducto.Location = new System.Drawing.Point(12, 282);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.ReadOnly = true;
             this.dgvProducto.RowHeadersVisible = false;
@@ -361,61 +361,67 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(115, 200);
+            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
+            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(293, 201);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(121, 23);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(70, 56);
             this.btnLimpiarCampos.TabIndex = 22;
-            this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
             // btnInsertarProducto
             // 
-            this.btnInsertarProducto.Location = new System.Drawing.Point(284, 200);
+            this.btnInsertarProducto.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo;
+            this.btnInsertarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInsertarProducto.Location = new System.Drawing.Point(394, 201);
             this.btnInsertarProducto.Name = "btnInsertarProducto";
-            this.btnInsertarProducto.Size = new System.Drawing.Size(136, 23);
+            this.btnInsertarProducto.Size = new System.Drawing.Size(74, 56);
             this.btnInsertarProducto.TabIndex = 23;
-            this.btnInsertarProducto.Text = "Nuevo Producto";
             this.btnInsertarProducto.UseVisualStyleBackColor = true;
             this.btnInsertarProducto.Click += new System.EventHandler(this.btnInsertarProducto_Click);
             // 
             // btnModificarProducto
             // 
-            this.btnModificarProducto.Location = new System.Drawing.Point(472, 200);
+            this.btnModificarProducto.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Editar;
+            this.btnModificarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModificarProducto.Location = new System.Drawing.Point(503, 201);
             this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(142, 23);
+            this.btnModificarProducto.Size = new System.Drawing.Size(68, 56);
             this.btnModificarProducto.TabIndex = 24;
-            this.btnModificarProducto.Text = "Modificar Producto";
             this.btnModificarProducto.UseVisualStyleBackColor = true;
             this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // btnEliminarProducto
             // 
-            this.btnEliminarProducto.Location = new System.Drawing.Point(665, 200);
+            this.btnEliminarProducto.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar;
+            this.btnEliminarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminarProducto.Location = new System.Drawing.Point(602, 201);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(141, 23);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(67, 56);
             this.btnEliminarProducto.TabIndex = 25;
-            this.btnEliminarProducto.Text = "Eliminar Producto";
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
             this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // btnMostrarEstado
             // 
-            this.btnMostrarEstado.Location = new System.Drawing.Point(537, 149);
+            this.btnMostrarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar;
+            this.btnMostrarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarEstado.Location = new System.Drawing.Point(537, 136);
             this.btnMostrarEstado.Name = "btnMostrarEstado";
-            this.btnMostrarEstado.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrarEstado.Size = new System.Drawing.Size(54, 45);
             this.btnMostrarEstado.TabIndex = 26;
-            this.btnMostrarEstado.Text = "Mostrar";
             this.btnMostrarEstado.UseVisualStyleBackColor = true;
             this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
             // 
             // btnMenuPrincipal
             // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(782, 468);
+            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
+            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(878, 473);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(154, 23);
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(58, 47);
             this.btnMenuPrincipal.TabIndex = 27;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
             this.btnMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
             // 
@@ -423,7 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 503);
+            this.ClientSize = new System.Drawing.Size(948, 534);
             this.Controls.Add(this.btnMenuPrincipal);
             this.Controls.Add(this.btnMostrarEstado);
             this.Controls.Add(this.btnEliminarProducto);

@@ -70,6 +70,12 @@
     <Compile Include="MantenimientoCiudad.Designer.cs">
       <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoClientes.Designer.cs">
+      <DependentUpon>MantenimientoClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <EmbeddedResource Include="MantenimientoCiudad.resx">
       <DependentUpon>MantenimientoCiudad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoClientes.resx">
+      <DependentUpon>MantenimientoClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoProductos.resx">
       <DependentUpon>MantenimientoProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,6 +170,42 @@
       <Project>{7a72a1ca-fcad-4fb5-9eb4-508c2775fa2c}</Project>
       <Name>Sisfacturacion.Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Activar Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buscar Usuario.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iniciar Sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iniciar Sesion 2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

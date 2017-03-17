@@ -32,10 +32,10 @@
             this.txtContrasenna = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblMensaje = new System.Windows.Forms.Label();
             this.lblCambiarContrasenna = new System.Windows.Forms.LinkLabel();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,16 +74,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre de Usuario";
             // 
-            // btnIniciarSesion
-            // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(48, 165);
-            this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(119, 30);
-            this.btnIniciarSesion.TabIndex = 4;
-            this.btnIniciarSesion.Text = "Iniciar Sesión";
-            this.btnIniciarSesion.UseVisualStyleBackColor = true;
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblCambiarContrasenna);
@@ -100,16 +90,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bienvenido, por favor, inicie sesión.";
             // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(24, 126);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
-            this.lblMensaje.TabIndex = 5;
-            this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblCambiarContrasenna
             // 
             this.lblCambiarContrasenna.AutoSize = true;
@@ -120,6 +100,28 @@
             this.lblCambiarContrasenna.TabStop = true;
             this.lblCambiarContrasenna.Text = "desea cambiar su contraseña?";
             this.lblCambiarContrasenna.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCambiarContrasenna_LinkClicked);
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+            this.lblMensaje.Location = new System.Drawing.Point(24, 126);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 13);
+            this.lblMensaje.TabIndex = 5;
+            this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnIniciarSesion
+            // 
+            this.btnIniciarSesion.BackColor = System.Drawing.SystemColors.Control;
+            this.btnIniciarSesion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Iniciar_Sesion_2;
+            this.btnIniciarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(27, 165);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(161, 30);
+            this.btnIniciarSesion.TabIndex = 4;
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // InicioSesion
             // 

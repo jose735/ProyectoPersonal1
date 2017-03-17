@@ -106,61 +106,67 @@
             // 
             // btnLimpiarCampos
             // 
+            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
+            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLimpiarCampos.Location = new System.Drawing.Point(34, 115);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(100, 23);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(74, 59);
             this.btnLimpiarCampos.TabIndex = 6;
-            this.btnLimpiarCampos.Text = "Limpiar Campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
             // btnInsertarCiudad
             // 
+            this.btnInsertarCiudad.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo;
+            this.btnInsertarCiudad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInsertarCiudad.Location = new System.Drawing.Point(174, 115);
             this.btnInsertarCiudad.Name = "btnInsertarCiudad";
-            this.btnInsertarCiudad.Size = new System.Drawing.Size(99, 23);
+            this.btnInsertarCiudad.Size = new System.Drawing.Size(73, 59);
             this.btnInsertarCiudad.TabIndex = 7;
-            this.btnInsertarCiudad.Text = "Nueva Ciudad";
             this.btnInsertarCiudad.UseVisualStyleBackColor = true;
             this.btnInsertarCiudad.Click += new System.EventHandler(this.btnInsertarCiudad_Click);
             // 
             // btnModificarCiudad
             // 
+            this.btnModificarCiudad.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Editar;
+            this.btnModificarCiudad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnModificarCiudad.Location = new System.Drawing.Point(309, 115);
             this.btnModificarCiudad.Name = "btnModificarCiudad";
-            this.btnModificarCiudad.Size = new System.Drawing.Size(101, 23);
+            this.btnModificarCiudad.Size = new System.Drawing.Size(71, 59);
             this.btnModificarCiudad.TabIndex = 8;
-            this.btnModificarCiudad.Text = "Modificar Ciudad";
             this.btnModificarCiudad.UseVisualStyleBackColor = true;
             this.btnModificarCiudad.Click += new System.EventHandler(this.btnModificarCiudad_Click);
             // 
             // btnMostrarEstado
             // 
-            this.btnMostrarEstado.Location = new System.Drawing.Point(397, 77);
+            this.btnMostrarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar;
+            this.btnMostrarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarEstado.Location = new System.Drawing.Point(397, 70);
             this.btnMostrarEstado.Name = "btnMostrarEstado";
-            this.btnMostrarEstado.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrarEstado.Size = new System.Drawing.Size(51, 39);
             this.btnMostrarEstado.TabIndex = 9;
-            this.btnMostrarEstado.Text = "Mostrar";
             this.btnMostrarEstado.UseVisualStyleBackColor = true;
             this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
             // 
             // btnMenuPrincipal
             // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(398, 393);
+            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
+            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(509, 417);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(146, 23);
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(58, 45);
             this.btnMenuPrincipal.TabIndex = 11;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
             this.btnMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
             // 
             // btnEliminarCiudad
             // 
+            this.btnEliminarCiudad.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar;
+            this.btnEliminarCiudad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEliminarCiudad.Location = new System.Drawing.Point(444, 115);
             this.btnEliminarCiudad.Name = "btnEliminarCiudad";
-            this.btnEliminarCiudad.Size = new System.Drawing.Size(96, 23);
+            this.btnEliminarCiudad.Size = new System.Drawing.Size(65, 59);
             this.btnEliminarCiudad.TabIndex = 12;
-            this.btnEliminarCiudad.Text = "Eliminar Ciudad";
             this.btnEliminarCiudad.UseVisualStyleBackColor = true;
             this.btnEliminarCiudad.Click += new System.EventHandler(this.btnEliminarCiudad_Click);
             // 
@@ -168,7 +174,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(12, 362);
+            this.lblMensaje.Location = new System.Drawing.Point(16, 404);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 13;
@@ -182,7 +188,7 @@
             this.colCodigo,
             this.colDescripcion,
             this.colEstado});
-            this.dgvCiudades.Location = new System.Drawing.Point(34, 154);
+            this.dgvCiudades.Location = new System.Drawing.Point(38, 196);
             this.dgvCiudades.Name = "dgvCiudades";
             this.dgvCiudades.ReadOnly = true;
             this.dgvCiudades.RowHeadersVisible = false;
@@ -214,7 +220,7 @@
             // 
             // pbCarga
             // 
-            this.pbCarga.Location = new System.Drawing.Point(85, 310);
+            this.pbCarga.Location = new System.Drawing.Point(89, 352);
             this.pbCarga.Name = "pbCarga";
             this.pbCarga.Size = new System.Drawing.Size(404, 23);
             this.pbCarga.TabIndex = 15;
@@ -226,7 +232,7 @@
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(160, 336);
+            this.lblPorcentaje.Location = new System.Drawing.Point(164, 378);
             this.lblPorcentaje.Name = "lblPorcentaje";
             this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
             this.lblPorcentaje.TabIndex = 16;
@@ -235,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 437);
+            this.ClientSize = new System.Drawing.Size(579, 474);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.dgvCiudades);

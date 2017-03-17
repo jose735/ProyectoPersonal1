@@ -43,6 +43,7 @@
     <Compile Include="CajaLogica.cs" />
     <Compile Include="CategoriaProductoLogica.cs" />
     <Compile Include="CiudadLogica.cs" />
+    <Compile Include="ClienteLogica.cs" />
     <Compile Include="ProductoLogica.cs" />
     <Compile Include="PromocionLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -43,18 +43,18 @@
             this.colContrasenna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInsertarUsuario = new System.Windows.Forms.Button();
-            this.btnEliminarUsuario = new System.Windows.Forms.Button();
-            this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.btnMostrarUsuarios = new System.Windows.Forms.Button();
-            this.btnModificarEstado = new System.Windows.Forms.Button();
             this.pbCarga = new System.Windows.Forms.ProgressBar();
             this.lblPorcentaje = new System.Windows.Forms.Label();
             this.tiempoCarga = new System.Windows.Forms.Timer(this.components);
+            this.btnModificarEstado = new System.Windows.Forms.Button();
+            this.btnMostrarUsuarios = new System.Windows.Forms.Button();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.btnMenuPrincipal = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.btnInsertarUsuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +139,7 @@
             this.colContrasenna,
             this.colTipoUsuario,
             this.colEstado});
-            this.dgvUsuarios.Location = new System.Drawing.Point(15, 224);
+            this.dgvUsuarios.Location = new System.Drawing.Point(15, 271);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
@@ -183,55 +183,15 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
-            // btnInsertarUsuario
-            // 
-            this.btnInsertarUsuario.Location = new System.Drawing.Point(179, 182);
-            this.btnInsertarUsuario.Name = "btnInsertarUsuario";
-            this.btnInsertarUsuario.Size = new System.Drawing.Size(140, 23);
-            this.btnInsertarUsuario.TabIndex = 9;
-            this.btnInsertarUsuario.Text = "Nuevo Usuario";
-            this.btnInsertarUsuario.UseVisualStyleBackColor = true;
-            this.btnInsertarUsuario.Click += new System.EventHandler(this.btnInsertarUsuario_Click);
-            // 
-            // btnEliminarUsuario
-            // 
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(512, 182);
-            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
-            this.btnEliminarUsuario.Size = new System.Drawing.Size(135, 23);
-            this.btnEliminarUsuario.TabIndex = 10;
-            this.btnEliminarUsuario.Text = "Eliminar Usuario";
-            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
-            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(512, 444);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(157, 23);
-            this.btnMenuPrincipal.TabIndex = 11;
-            this.btnMenuPrincipal.Text = "Volver al menu principal";
-            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(12, 449);
+            this.lblMensaje.Location = new System.Drawing.Point(12, 496);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 12;
-            // 
-            // btnLimpiarCampos
-            // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(15, 182);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(131, 23);
-            this.btnLimpiarCampos.TabIndex = 13;
-            this.btnLimpiarCampos.Text = "Limpiar campos";
-            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
-            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
             // label5
             // 
@@ -251,29 +211,9 @@
             this.cboEstado.Size = new System.Drawing.Size(137, 21);
             this.cboEstado.TabIndex = 15;
             // 
-            // btnMostrarUsuarios
-            // 
-            this.btnMostrarUsuarios.Location = new System.Drawing.Point(564, 136);
-            this.btnMostrarUsuarios.Name = "btnMostrarUsuarios";
-            this.btnMostrarUsuarios.Size = new System.Drawing.Size(105, 23);
-            this.btnMostrarUsuarios.TabIndex = 16;
-            this.btnMostrarUsuarios.Text = "Mostrar";
-            this.btnMostrarUsuarios.UseVisualStyleBackColor = true;
-            this.btnMostrarUsuarios.Click += new System.EventHandler(this.btnMostrarUsuarios_Click);
-            // 
-            // btnModificarEstado
-            // 
-            this.btnModificarEstado.Location = new System.Drawing.Point(350, 182);
-            this.btnModificarEstado.Name = "btnModificarEstado";
-            this.btnModificarEstado.Size = new System.Drawing.Size(134, 23);
-            this.btnModificarEstado.TabIndex = 17;
-            this.btnModificarEstado.Text = "Activar Usuario";
-            this.btnModificarEstado.UseVisualStyleBackColor = true;
-            this.btnModificarEstado.Click += new System.EventHandler(this.btnModificarEstado_Click_1);
-            // 
             // pbCarga
             // 
-            this.pbCarga.Location = new System.Drawing.Point(118, 380);
+            this.pbCarga.Location = new System.Drawing.Point(118, 427);
             this.pbCarga.Name = "pbCarga";
             this.pbCarga.Size = new System.Drawing.Size(439, 23);
             this.pbCarga.TabIndex = 18;
@@ -281,7 +221,7 @@
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(225, 406);
+            this.lblPorcentaje.Location = new System.Drawing.Point(225, 453);
             this.lblPorcentaje.Name = "lblPorcentaje";
             this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
             this.lblPorcentaje.TabIndex = 19;
@@ -290,11 +230,77 @@
             // 
             this.tiempoCarga.Tick += new System.EventHandler(this.tiempoCarga_Tick);
             // 
+            // btnModificarEstado
+            // 
+            this.btnModificarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Activar_Usuario;
+            this.btnModificarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModificarEstado.Location = new System.Drawing.Point(357, 184);
+            this.btnModificarEstado.Name = "btnModificarEstado";
+            this.btnModificarEstado.Size = new System.Drawing.Size(76, 64);
+            this.btnModificarEstado.TabIndex = 17;
+            this.btnModificarEstado.UseVisualStyleBackColor = true;
+            this.btnModificarEstado.Click += new System.EventHandler(this.btnModificarEstado_Click_1);
+            // 
+            // btnMostrarUsuarios
+            // 
+            this.btnMostrarUsuarios.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar_Usuario;
+            this.btnMostrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarUsuarios.Location = new System.Drawing.Point(563, 120);
+            this.btnMostrarUsuarios.Name = "btnMostrarUsuarios";
+            this.btnMostrarUsuarios.Size = new System.Drawing.Size(68, 55);
+            this.btnMostrarUsuarios.TabIndex = 16;
+            this.btnMostrarUsuarios.UseVisualStyleBackColor = true;
+            this.btnMostrarUsuarios.Click += new System.EventHandler(this.btnMostrarUsuarios_Click);
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
+            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(138, 184);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(78, 64);
+            this.btnLimpiarCampos.TabIndex = 13;
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
+            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(618, 468);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(57, 47);
+            this.btnMenuPrincipal.TabIndex = 11;
+            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
+            // 
+            // btnEliminarUsuario
+            // 
+            this.btnEliminarUsuario.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar_Usuario;
+            this.btnEliminarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(464, 184);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(80, 64);
+            this.btnEliminarUsuario.TabIndex = 10;
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
+            // 
+            // btnInsertarUsuario
+            // 
+            this.btnInsertarUsuario.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo_Usuario;
+            this.btnInsertarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInsertarUsuario.Location = new System.Drawing.Point(246, 184);
+            this.btnInsertarUsuario.Name = "btnInsertarUsuario";
+            this.btnInsertarUsuario.Size = new System.Drawing.Size(81, 64);
+            this.btnInsertarUsuario.TabIndex = 9;
+            this.btnInsertarUsuario.UseVisualStyleBackColor = true;
+            this.btnInsertarUsuario.Click += new System.EventHandler(this.btnInsertarUsuario_Click);
+            // 
             // MantenimientoUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 479);
+            this.ClientSize = new System.Drawing.Size(687, 527);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.btnModificarEstado);
