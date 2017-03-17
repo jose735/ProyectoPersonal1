@@ -244,7 +244,6 @@ namespace Sisfacturacion.Datos
                 // Nota: es obligatorio cambiar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@idPromocion", promocion.idPromocion);
-                comando.Parameters.AddWithValue("@idProducto", promocion.idProducto);
                 comando.Parameters.AddWithValue("@porcentajeDescuento", promocion.porcentajeDescuento);
                 comando.Parameters.AddWithValue("@estado", promocion.estado);
 

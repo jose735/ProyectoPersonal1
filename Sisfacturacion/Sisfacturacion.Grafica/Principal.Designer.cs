@@ -123,6 +123,7 @@
             this.promocionesToolStripMenuItem.Name = "promocionesToolStripMenuItem";
             this.promocionesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.promocionesToolStripMenuItem.Text = "Promociones";
+            this.promocionesToolStripMenuItem.Click += new System.EventHandler(this.promocionesToolStripMenuItem_Click);
             // 
             // proveedorToolStripMenuItem
             // 

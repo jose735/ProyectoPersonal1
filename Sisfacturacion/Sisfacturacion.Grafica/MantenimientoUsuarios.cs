@@ -276,7 +276,7 @@ namespace Sisfacturacion.Grafica
         private void tiempoCarga_Tick(object sender, EventArgs e)
         {
             pbCarga.Increment(1);
-            lblPorcentaje.Text = pbCarga.Value.ToString() + "%";
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de usuarios, espere por favor";
             if (pbCarga.Value == 100)
             {
                 dgvUsuarios.DataSource = uL.ObtenerTodosUsuarios(1);

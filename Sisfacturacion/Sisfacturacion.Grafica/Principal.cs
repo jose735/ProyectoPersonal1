@@ -117,5 +117,12 @@ namespace Sisfacturacion.Grafica
             mp.Show();
             this.Hide();
         }
+
+        private void promocionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoPromociones mp = new MantenimientoPromociones();
+            mp.Show();
+            this.Hide();
+        }
     }
 }

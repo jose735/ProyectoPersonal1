@@ -10,13 +10,13 @@ namespace Sisfacturacion.Logica
 {
     public class PromocionLogica
     {
-        public List<Promocion> ObtenerProveedor(String idProducto, int estado)
+        public List<Promocion> ObtenerPromocion(String idProducto, int estado)
         {
             PromocionDatos datos = new PromocionDatos();
             return datos.SeleccionarPromocionPorId(idProducto, estado);
         }
 
-        public List<Promocion> ObtenerTodosProveedor()
+        public List<Promocion> ObtenerTodosPromocion()
         {
             PromocionDatos datos = new PromocionDatos();
             return datos.SeleccionarTodosPromocion();

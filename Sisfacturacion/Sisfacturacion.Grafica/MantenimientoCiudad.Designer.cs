@@ -226,7 +226,7 @@
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(273, 336);
+            this.lblPorcentaje.Location = new System.Drawing.Point(160, 336);
             this.lblPorcentaje.Name = "lblPorcentaje";
             this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
             this.lblPorcentaje.TabIndex = 16;
