@@ -63,9 +63,29 @@ namespace Sisfacturacion.Grafica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Acceder {
+            get {
+                object obj = ResourceManager.GetObject("Acceder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Activar_Usuario {
             get {
                 object obj = ResourceManager.GetObject("Activar Usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Agregar_Producto {
+            get {
+                object obj = ResourceManager.GetObject("Agregar Producto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +136,16 @@ namespace Sisfacturacion.Grafica.Properties {
         internal static System.Drawing.Bitmap Eliminar_Usuario {
             get {
                 object obj = ResourceManager.GetObject("Eliminar Usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Facturar {
+            get {
+                object obj = ResourceManager.GetObject("Facturar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

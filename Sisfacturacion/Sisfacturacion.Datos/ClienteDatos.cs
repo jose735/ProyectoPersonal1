@@ -10,7 +10,7 @@ namespace Sisfacturacion.Datos
 {
     public class ClienteDatos
     {
-        public List<Cliente> SeleccionarClientePorId(int idCliente)
+        public List<Cliente> SeleccionarClientePorId(String idCliente)
         {
             List<Cliente> lista = new List<Cliente>();
             //Creamos el objeto que se conecta con la base de datos

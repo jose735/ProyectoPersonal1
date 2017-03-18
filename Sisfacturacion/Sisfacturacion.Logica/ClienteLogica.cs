@@ -10,7 +10,7 @@ namespace Sisfacturacion.Logica
 {
     public class ClienteLogica
     {
-        public List<Cliente> ObtenerCliente(int idCliente)
+        public List<Cliente> ObtenerCliente(String idCliente)
         {
             ClienteDatos datos = new ClienteDatos();
             return datos.SeleccionarClientePorId(idCliente);

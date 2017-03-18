@@ -134,8 +134,8 @@ namespace Sisfacturacion.Grafica
 
         private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Facturacion f = new Facturacion();
-            f.Show();
+            SeleccionCaja sc = new SeleccionCaja();
+            sc.Show();
             this.Hide();
         }
     }
