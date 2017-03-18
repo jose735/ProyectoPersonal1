@@ -17,6 +17,13 @@ namespace Sisfacturacion.Grafica
         ProductoLogica prodl = new ProductoLogica();
         TipoPagoLogica tpl = new TipoPagoLogica();
         ClienteLogica cl = new ClienteLogica();
+        PromocionLogica proml = new PromocionLogica();
+        List<Producto> ListaDetalle = new List<Producto>();
+        Producto productoDetallar = new Producto();
+        double subtotal = 0;
+        double total = 0;
+        int nuevoInventario = 0;
+        double precioDelProducto = 0;
 
         public Facturacion()
         {
@@ -30,8 +37,34 @@ namespace Sisfacturacion.Grafica
             cboTipoPago.ValueMember = "idTipoPago";
         }
 
+        public void LimpiarCamposProducto()
+        {
+            txtCodigoProducto.Text = "";
+            txtNombreProducto.Text = "";
+            nudCantidad.Value = 1;
+        }
+
+        public void disminuirInventario()
+        {
+            //Disminuir el inventario del producto a facturar
+            Producto p = new Producto();
+            p.nombre= productoDetallar.nombre;
+            p.idProducto = productoDetallar.idProducto;
+            p.idCategoria = productoDetallar.idCategoria;
+            p.idProveedor = productoDetallar.idProveedor;
+            p.fechaIngreso = productoDetallar.fechaIngreso;
+            p.fechaVencimiento = productoDetallar.fechaVencimiento;
+            p.estado = productoDetallar.estado;
+            p.precio = precioDelProducto;
+            p.cantidad = nuevoInventario;
+            prodl.ModificarProducto(p);
+            nuevoInventario = 0;
+            precioDelProducto = 0;
+        }
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            dgvProductosDetalle.AutoGenerateColumns = false;
             txtNombreCaja.Enabled = false;
             txtNombreCaja.Text = SeleccionCaja.nombreCaja;
             txtSubtotal.Enabled = false;
@@ -106,6 +139,7 @@ namespace Sisfacturacion.Grafica
                     else
                     {
                         Producto p = prodl.ObtenerProducto(txtCodigoProducto.Text).ElementAt(0);
+                        productoDetallar = p;
                         txtNombreProducto.Text = p.nombre;
                     }
                 }
@@ -122,6 +156,7 @@ namespace Sisfacturacion.Grafica
                     else
                     {
                         Producto p = prodl.ObtenerProducto2(txtNombreProducto.Text).ElementAt(0);
+                        productoDetallar = p;
                         txtCodigoProducto.Text = p.idProducto;
                     }
                 }
@@ -155,6 +190,75 @@ namespace Sisfacturacion.Grafica
                 txtTelefonoCliente.Enabled = false;
                 txtDireccionCliente.Enabled = false;
             }
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            //verifica si la busqueda no se ha efectuado
+            if (txtCodigoProducto.Text == "" || txtNombreProducto.Text == "")
+            {
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "El código y el nombre del producto deben estar digitados, por favor realice la busqueda del producto";
+            }
+            else
+            {
+                //verifica si hay suficiente producto en el inventario
+                if (productoDetallar.cantidad < Convert.ToInt32(nudCantidad.Value))
+                {
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "No se encuentra la cantidad que desea de este producto en el inventario";
+                }
+                else
+                {
+                    lblMensaje.Text = "";
+                    subtotal = 0;
+
+                    //resta del inventario con la cantidad deseada
+                    nuevoInventario = productoDetallar.cantidad - Convert.ToInt32(nudCantidad.Value);
+
+                    //mantener el precio actual del producto
+                    precioDelProducto = productoDetallar.precio;
+
+                    //verificar si el producto tiene promocion y hacer el descuento
+                    for (int i = 0; i < proml.ObtenerTodosPromocion(1).Count; i++)
+                    {
+                        if (proml.ObtenerTodosPromocion(1).ElementAt(i).idProducto == productoDetallar.idProducto)
+                        {
+                            productoDetallar.precio = productoDetallar.precio - (productoDetallar.precio * (proml.ObtenerTodosPromocion(1).ElementAt(i).porcentajeDescuento / 100));
+                        }
+                    }
+
+                    //facturacion del producto
+                    productoDetallar.cantidad = Convert.ToInt32(nudCantidad.Value);
+                    ListaDetalle.Add(productoDetallar);
+                    dgvProductosDetalle.DataSource = null;
+                    dgvProductosDetalle.DataSource = ListaDetalle;
+
+
+                    //recorre la lista de detalle para calcular el subtotal y el total
+                    for (int i = 0; i < ListaDetalle.Count; i++)
+                    {
+                        subtotal += ListaDetalle.ElementAt(i).precio * ListaDetalle.ElementAt(i).cantidad;
+                    }
+
+                    //calculo de impuesto y total de todos los productos
+                    double impuesto = subtotal * 0.13;
+                    total = subtotal + impuesto;
+
+                    txtSubtotal.Text = subtotal.ToString("# ###.00");
+                    txtTotal.Text = total.ToString("# ###.00");
+                    txtImpuesto.Text = impuesto.ToString("# ###.00");
+
+                    disminuirInventario();
+
+                    LimpiarCamposProducto();
+                }
+            }
+        }
+
+        private void btnFinalizarFactura_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
