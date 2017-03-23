@@ -43,7 +43,7 @@ namespace Sisfacturacion.Grafica
         private void MantenimientoCiudad_Load(object sender, EventArgs e)
         {
             tiempoCarga.Start();
-            tiempoCarga.Interval = cL.ObtenerTodosCiudad(1).Count * 25;
+            tiempoCarga.Interval = cL.ObtenerTodosCiudad(1).Count * 5;
             dgvCiudades.AutoGenerateColumns = false;
             cargarCombo();
             //refrescar();

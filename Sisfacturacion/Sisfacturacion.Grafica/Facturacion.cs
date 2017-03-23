@@ -18,6 +18,8 @@ namespace Sisfacturacion.Grafica
         TipoPagoLogica tpl = new TipoPagoLogica();
         ClienteLogica cl = new ClienteLogica();
         PromocionLogica proml = new PromocionLogica();
+        FacturaLogica facl = new FacturaLogica();
+        UsuarioLogica ul = new UsuarioLogica();
         List<Producto> ListaDetalle = new List<Producto>();
         Producto productoDetallar = new Producto();
         double subtotal = 0;
@@ -60,6 +62,69 @@ namespace Sisfacturacion.Grafica
             prodl.ModificarProducto(p);
             nuevoInventario = 0;
             precioDelProducto = 0;
+        }
+
+        public String insertarClienteGeneral()
+        {
+            String idClienteFacturar = "";
+
+            //Se verifica que se haya escogido el tipo de pago "Credito"
+            if (cboTipoPago.SelectedIndex == 1)
+            {
+                //se verifican los campos de texto para encontrar campos nulos
+                if (txtIdentificacion.Text == "" || txtNombreCliente.Text == "" || txtDireccionCliente.Text == "" || txtTelefonoCliente.Text == "")
+                {
+                    lblMensaje.ForeColor = Color.OrangeRed;
+                    lblMensaje.Text = "Debe llenar el campo referentes al cliente para realizar su factura a credito";
+                }
+                else
+                {
+                    //se verifica que el cliente exista en el registro
+                    if (cl.ObtenerCliente(txtIdentificacion.Text).Count > 0)
+                    {
+                        idClienteFacturar = cl.ObtenerCliente(txtIdentificacion.Text).ElementAt(0).idCliente;
+                    }
+                    else
+                    {
+                        //se crea la instancia del cliente a registar al sistema
+                        Cliente c2 = new Cliente();
+                        c2.idCliente = txtIdentificacion.Text;
+                        c2.nombre = txtNombreCliente.Text;
+                        c2.direccion = txtDireccionCliente.Text;
+                        c2.telefono = txtTelefonoCliente.Text;
+
+                        //se edita la variable con el numero de identificacion del cliente registrado
+                        idClienteFacturar = c2.idCliente;
+
+                        //se inserta al cliente
+                        cl.InsertarCliente(c2);
+                    }
+                }
+            }
+            else
+            {
+                //se verifica que ya exista el cliente general
+                if (cl.ObtenerCliente("Ninguno").Count == 0)
+                {
+                    Cliente c1 = new Cliente();
+                    c1.idCliente = "Ninguno";
+                    c1.nombre = "Cliente General";
+                    c1.direccion = "Sin direccion";
+                    c1.telefono = "Ninguno";
+
+                    //se edita la variable con el numero de identificacion por default del cliente general
+                    idClienteFacturar = c1.idCliente;
+
+                    cl.InsertarCliente(c1);
+                }
+                else
+                {
+                    //se edita la variable con el numero de identificacion por default del cliente general
+                    idClienteFacturar = "Ninguno";
+                }
+            }
+
+            return idClienteFacturar;
         }
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -258,7 +323,39 @@ namespace Sisfacturacion.Grafica
 
         private void btnFinalizarFactura_Click(object sender, EventArgs e)
         {
+            //se crea la instancia del encabezado de la factura
+            Factura f = new Factura();
+            f.idCliente = insertarClienteGeneral();
+            f.idCaja = SeleccionCaja.codCaja;
+            f.idTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue);
+            f.idUsuario = ul.ObtenerUsuario(InicioSesion.nombreUsuario).ElementAt(0).idUsuario;
+            f.nombreLocal = "Super El Pueblo";
+            f.subtotal = Convert.ToDouble(txtSubtotal.Text);
+            f.impuesto = Convert.ToDouble(txtImpuesto.Text);
+            f.total = Convert.ToDouble(txtTotal.Text);
 
+            //se inserta el encabezado de la factura
+            facl.InsertarEncFactura(f);
+
+            //leer los productos que se compraron y se registrar en la factura
+            for (int i = 0; i < dgvProductosDetalle.Rows.Count; i++)
+            {
+                //obtener los datos de la fila del detalle
+                Producto p = (Producto)dgvProductosDetalle.Rows[i].DataBoundItem;
+
+                //crear la fila del detalle
+                Factura f1 = new Factura();
+                f1.idEncFactura = facl.ObtenerUltimaFactura();
+                f1.idProducto = p.idProducto;
+                f1.cantidadProducto = p.cantidad;
+                f1.precioProducto = p.precio;
+
+                //insertar el detalle
+                facl.InsertarDetFactura(f1);
+            }
+
+            lblMensaje.ForeColor = Color.Green;
+            lblMensaje.Text = "Factura realizada exitosamente";
         }
     }
 }

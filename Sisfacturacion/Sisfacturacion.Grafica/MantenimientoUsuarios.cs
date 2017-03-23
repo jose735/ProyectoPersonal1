@@ -24,7 +24,7 @@ namespace Sisfacturacion.Grafica
         private void MantenimientoUsuarios_Load(object sender, EventArgs e)
         {
             tiempoCarga.Start();
-            tiempoCarga.Interval = uL.ObtenerTodosUsuarios(1).Count * 25;
+            tiempoCarga.Interval = uL.ObtenerTodosUsuarios(1).Count * 5;
 
             //no genera columnas de manera automatica
             dgvUsuarios.AutoGenerateColumns = false;

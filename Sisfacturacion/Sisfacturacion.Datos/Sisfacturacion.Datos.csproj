@@ -46,6 +46,7 @@
     <Compile Include="CiudadDatos.cs" />
     <Compile Include="ClienteDatos.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="FacturaDatos.cs" />
     <Compile Include="ProductoDatos.cs" />
     <Compile Include="PromocionDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
