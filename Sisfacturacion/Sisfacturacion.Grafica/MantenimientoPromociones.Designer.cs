@@ -45,14 +45,14 @@
             this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPorcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstadoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLimpiarCampos = new System.Windows.Forms.Button();
-            this.btnInsertarPromocion = new System.Windows.Forms.Button();
-            this.btnModificarPromocion = new System.Windows.Forms.Button();
-            this.btnMenuPrincipal = new System.Windows.Forms.Button();
-            this.btnEliminarPromocion = new System.Windows.Forms.Button();
-            this.btnMostrarEstado = new System.Windows.Forms.Button();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.nudPorcentaje = new System.Windows.Forms.NumericUpDown();
+            this.btnMostrarEstado = new System.Windows.Forms.Button();
+            this.btnEliminarPromocion = new System.Windows.Forms.Button();
+            this.btnMenuPrincipal = new System.Windows.Forms.Button();
+            this.btnModificarPromocion = new System.Windows.Forms.Button();
+            this.btnInsertarPromocion = new System.Windows.Forms.Button();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 32);
             this.label1.Name = "label1";
@@ -73,6 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(166, 275);
             this.label2.Name = "label2";
@@ -83,6 +85,7 @@
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
+            this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.Location = new System.Drawing.Point(15, 613);
             this.lblMensaje.Name = "lblMensaje";
@@ -92,6 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(219, 31);
             this.label4.Name = "label4";
@@ -155,6 +159,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.dgvProductos);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 66);
@@ -166,6 +171,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.dgvPromociones);
             this.groupBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 398);
@@ -222,72 +228,6 @@
             this.colEstadoProd.Name = "colEstadoProd";
             this.colEstadoProd.ReadOnly = true;
             // 
-            // btnLimpiarCampos
-            // 
-            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
-            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(123, 318);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(70, 61);
-            this.btnLimpiarCampos.TabIndex = 7;
-            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
-            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
-            // 
-            // btnInsertarPromocion
-            // 
-            this.btnInsertarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo;
-            this.btnInsertarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInsertarPromocion.Location = new System.Drawing.Point(221, 318);
-            this.btnInsertarPromocion.Name = "btnInsertarPromocion";
-            this.btnInsertarPromocion.Size = new System.Drawing.Size(74, 61);
-            this.btnInsertarPromocion.TabIndex = 8;
-            this.btnInsertarPromocion.UseVisualStyleBackColor = true;
-            this.btnInsertarPromocion.Click += new System.EventHandler(this.btnInsertarPromocion_Click);
-            // 
-            // btnModificarPromocion
-            // 
-            this.btnModificarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Editar;
-            this.btnModificarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnModificarPromocion.Location = new System.Drawing.Point(325, 318);
-            this.btnModificarPromocion.Name = "btnModificarPromocion";
-            this.btnModificarPromocion.Size = new System.Drawing.Size(73, 61);
-            this.btnModificarPromocion.TabIndex = 9;
-            this.btnModificarPromocion.UseVisualStyleBackColor = true;
-            this.btnModificarPromocion.Click += new System.EventHandler(this.btnModificarPromocion_Click);
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
-            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(571, 590);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(52, 41);
-            this.btnMenuPrincipal.TabIndex = 10;
-            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
-            // btnEliminarPromocion
-            // 
-            this.btnEliminarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar;
-            this.btnEliminarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEliminarPromocion.Location = new System.Drawing.Point(428, 318);
-            this.btnEliminarPromocion.Name = "btnEliminarPromocion";
-            this.btnEliminarPromocion.Size = new System.Drawing.Size(70, 61);
-            this.btnEliminarPromocion.TabIndex = 11;
-            this.btnEliminarPromocion.UseVisualStyleBackColor = true;
-            this.btnEliminarPromocion.Click += new System.EventHandler(this.btnEliminarPromocion_Click);
-            // 
-            // btnMostrarEstado
-            // 
-            this.btnMostrarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar;
-            this.btnMostrarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMostrarEstado.Location = new System.Drawing.Point(428, 259);
-            this.btnMostrarEstado.Name = "btnMostrarEstado";
-            this.btnMostrarEstado.Size = new System.Drawing.Size(53, 43);
-            this.btnMostrarEstado.TabIndex = 12;
-            this.btnMostrarEstado.UseVisualStyleBackColor = true;
-            this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
-            // 
             // cboEstado
             // 
             this.cboEstado.FormattingEnabled = true;
@@ -303,10 +243,78 @@
             this.nudPorcentaje.Size = new System.Drawing.Size(48, 20);
             this.nudPorcentaje.TabIndex = 14;
             // 
+            // btnMostrarEstado
+            // 
+            this.btnMostrarEstado.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Buscar;
+            this.btnMostrarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarEstado.Location = new System.Drawing.Point(428, 259);
+            this.btnMostrarEstado.Name = "btnMostrarEstado";
+            this.btnMostrarEstado.Size = new System.Drawing.Size(53, 43);
+            this.btnMostrarEstado.TabIndex = 12;
+            this.btnMostrarEstado.UseVisualStyleBackColor = true;
+            this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
+            // 
+            // btnEliminarPromocion
+            // 
+            this.btnEliminarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Eliminar;
+            this.btnEliminarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminarPromocion.Location = new System.Drawing.Point(428, 318);
+            this.btnEliminarPromocion.Name = "btnEliminarPromocion";
+            this.btnEliminarPromocion.Size = new System.Drawing.Size(70, 61);
+            this.btnEliminarPromocion.TabIndex = 11;
+            this.btnEliminarPromocion.UseVisualStyleBackColor = true;
+            this.btnEliminarPromocion.Click += new System.EventHandler(this.btnEliminarPromocion_Click);
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
+            this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(571, 590);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(52, 41);
+            this.btnMenuPrincipal.TabIndex = 10;
+            this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
+            // 
+            // btnModificarPromocion
+            // 
+            this.btnModificarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Editar;
+            this.btnModificarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModificarPromocion.Location = new System.Drawing.Point(325, 318);
+            this.btnModificarPromocion.Name = "btnModificarPromocion";
+            this.btnModificarPromocion.Size = new System.Drawing.Size(73, 61);
+            this.btnModificarPromocion.TabIndex = 9;
+            this.btnModificarPromocion.UseVisualStyleBackColor = true;
+            this.btnModificarPromocion.Click += new System.EventHandler(this.btnModificarPromocion_Click);
+            // 
+            // btnInsertarPromocion
+            // 
+            this.btnInsertarPromocion.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Nuevo;
+            this.btnInsertarPromocion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInsertarPromocion.Location = new System.Drawing.Point(221, 318);
+            this.btnInsertarPromocion.Name = "btnInsertarPromocion";
+            this.btnInsertarPromocion.Size = new System.Drawing.Size(74, 61);
+            this.btnInsertarPromocion.TabIndex = 8;
+            this.btnInsertarPromocion.UseVisualStyleBackColor = true;
+            this.btnInsertarPromocion.Click += new System.EventHandler(this.btnInsertarPromocion_Click);
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Limpiar;
+            this.btnLimpiarCampos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(123, 318);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(70, 61);
+            this.btnLimpiarCampos.TabIndex = 7;
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
             // MantenimientoPromociones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimientos_Referentes_a_Articulos;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(635, 643);
             this.Controls.Add(this.nudPorcentaje);
             this.Controls.Add(this.cboEstado);

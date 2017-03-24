@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasenna = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.lblCambiarContrasenna = new System.Windows.Forms.LinkLabel();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
+            this.hpAyuda = new System.Windows.Forms.HelpProvider();
+            this.tltAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +46,7 @@
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(149, 26);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(183, 20);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(125, 20);
             this.txtNombreUsuario.TabIndex = 0;
             this.txtNombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreUsuario_KeyDown);
             // 
@@ -52,7 +55,7 @@
             this.txtContrasenna.Location = new System.Drawing.Point(149, 67);
             this.txtContrasenna.Name = "txtContrasenna";
             this.txtContrasenna.PasswordChar = '*';
-            this.txtContrasenna.Size = new System.Drawing.Size(183, 20);
+            this.txtContrasenna.Size = new System.Drawing.Size(125, 20);
             this.txtContrasenna.TabIndex = 1;
             this.txtContrasenna.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasenna_KeyDown);
             // 
@@ -76,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblCambiarContrasenna);
             this.groupBox1.Controls.Add(this.lblMensaje);
             this.groupBox1.Controls.Add(this.label2);
@@ -85,7 +89,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(28, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 213);
+            this.groupBox1.Size = new System.Drawing.Size(378, 213);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bienvenido, por favor, inicie sesión.";
@@ -127,9 +131,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 272);
+            this.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Login;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(429, 272);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Facturación - Inicio de Sesión";
@@ -152,6 +161,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.LinkLabel lblCambiarContrasenna;
+        private System.Windows.Forms.HelpProvider hpAyuda;
+        private System.Windows.Forms.ToolTip tltAyuda;
     }
 }
 

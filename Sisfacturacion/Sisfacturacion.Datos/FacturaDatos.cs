@@ -72,6 +72,9 @@ namespace Sisfacturacion.Datos
                 comando.Parameters.AddWithValue("@subtotal", encabezado.subtotal);
                 comando.Parameters.AddWithValue("@impuesto", encabezado.impuesto);
                 comando.Parameters.AddWithValue("@total", encabezado.total);
+                comando.Parameters.AddWithValue("@fechaCreacion", encabezado.fechaCreacion);
+                comando.Parameters.AddWithValue("@montoPagar", encabezado.montoAPagar);
+                comando.Parameters.AddWithValue("@cambio", encabezado.cambio);
 
                 // Ejecutar el comando
                 comando.ExecuteNonQuery();

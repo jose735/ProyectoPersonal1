@@ -26,6 +26,7 @@ namespace Sisfacturacion.Grafica
         double total = 0;
         int nuevoInventario = 0;
         double precioDelProducto = 0;
+        public static int idFactura = 0;
 
         public Facturacion()
         {
@@ -135,6 +136,7 @@ namespace Sisfacturacion.Grafica
             txtSubtotal.Enabled = false;
             txtImpuesto.Enabled = false;
             txtTotal.Enabled = false;
+            txtCambio.Enabled = false;
 
             btnRegistrarCliente.Visible = false;
 
@@ -333,6 +335,9 @@ namespace Sisfacturacion.Grafica
             f.subtotal = Convert.ToDouble(txtSubtotal.Text);
             f.impuesto = Convert.ToDouble(txtImpuesto.Text);
             f.total = Convert.ToDouble(txtTotal.Text);
+            f.fechaCreacion = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss tt");
+            f.montoAPagar = Convert.ToDouble(txtMontoPagar.Text);
+            f.cambio = Convert.ToDouble(txtCambio.Text);
 
             //se inserta el encabezado de la factura
             facl.InsertarEncFactura(f);
@@ -354,8 +359,71 @@ namespace Sisfacturacion.Grafica
                 facl.InsertarDetFactura(f1);
             }
 
-            lblMensaje.ForeColor = Color.Green;
-            lblMensaje.Text = "Factura realizada exitosamente";
+            //Se edita el numero de factura para que esta se muestre en el reporte de factura
+            idFactura= facl.ObtenerUltimaFactura();
+
+            //muestra la factura
+            MostrarFactura mf = new MostrarFactura();
+            mf.ShowDialog();
+            
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalcularCambio_Click(object sender, EventArgs e)
+        {
+            //verificar que el campo de monto se nulo
+            if (txtMontoPagar.Text == "")
+            {
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "Debe llenar el campo correspondiente a el monto pagado para realizar el calculo del cambio";
+            }
+            else
+            {
+                //verificar que  el monto sea el suficiente para pagar la factura
+                if (Convert.ToDouble(txtMontoPagar.Text) < Convert.ToDouble(txtTotal.Text))
+                {
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "Monto insuficiente para el pago de la factura";
+                }
+                else
+                {
+                    //hacer el cálculo del cambio a dar
+                    double cambio = Convert.ToDouble(txtMontoPagar.Text) - Convert.ToDouble(txtTotal.Text);
+                    txtCambio.Text = cambio.ToString("# ###.00");
+                }
+            }
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            txtNombreCaja.Enabled = false;
+            txtNombreCaja.Text = SeleccionCaja.nombreCaja;
+            txtSubtotal.Text = "";
+            txtImpuesto.Text = "";
+            txtTotal.Text = "";
+            txtCambio.Text = "";
+            txtMontoPagar.Text = "";
+            txtIdentificacion.Text = "";
+            txtNombreCliente.Text = "";
+            txtTelefonoCliente.Text = "";
+            txtDireccionCliente.Text = "";
+            txtCodigoProducto.Text = "";
+            txtNombreProducto.Text = "";
+            dgvProductosDetalle.DataSource = null;
+
+            btnRegistrarCliente.Visible = false;
+        }
+
+        private void btnCancelarFactura_Click(object sender, EventArgs e)
+        {
+            //crea una instancia del menu principal, se muestra el menu principal y se cierra la ventana actual
+            Principal p = new Principal();
+            p.Show();
+            this.Hide();
         }
     }
 }

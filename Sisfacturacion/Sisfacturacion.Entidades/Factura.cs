@@ -26,5 +26,8 @@ namespace Sisfacturacion.Entidades
         public double subtotal { get; set; }
         public double impuesto { get; set; }
         public double total { get; set; }
+        public String fechaCreacion { get; set; }
+        public double montoAPagar { get; set; }
+        public double cambio { get; set; }
     }
 }

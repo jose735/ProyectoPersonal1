@@ -121,6 +121,9 @@
   <data name="Iniciar Sesion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Iniciar Sesion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Iniciar Sesion 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Iniciar Sesion 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,14 +139,26 @@
   <data name="Eliminar Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Facturar y Devoluciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Facturar y Devoluciones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Buscar Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buscar Usuario.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Iniciar Sesion 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Iniciar Sesion 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cobrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cobrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Acceder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Acceder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu Principal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu Principal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mantenimientos Referentes a Articulos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mantenimientos Referentes a Articulos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Activar Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Activar Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,7 +175,10 @@
   <data name="Volver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Volver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Acceder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Acceder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mantenimientos Referentes a Personal y Clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mantenimientos Referentes a Personal y Clientes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -80,6 +80,22 @@ namespace Sisfacturacion.Grafica
         {
             txtNombreUsuario.Focus();
             Principal.ind = false;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtNombreUsuario, true);
+            hpAyuda.SetHelpString(this.txtNombreUsuario, "Se ingresa el nombre de usuario suministrado por el administrador");
+            hpAyuda.SetShowHelp(this.txtContrasenna, true);
+            hpAyuda.SetHelpString(this.txtContrasenna, "La contraseña debe contener letras y al menos un número");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtNombreUsuario, "Se ingresa el nombre de usuario suministrado por el administrador");
+            tltAyuda.SetToolTip(this.txtContrasenna, "La contraseña debe contener letras y al menos un número");
+            tltAyuda.SetToolTip(this.btnIniciarSesion, "Ingresa al sistema el nombre y la contraseña digitados");
+            tltAyuda.SetToolTip(this.lblCambiarContrasenna, "Cambia la contraseña de la persona que va a ingresar");
+
         }
 
         private void InicioSesion_FormClosed(object sender, FormClosedEventArgs e)
