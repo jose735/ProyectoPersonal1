@@ -34,6 +34,11 @@ namespace Sisfacturacion.Grafica
 
         public void cargarCombo()
         {
+            //carga el combo con los nombres completos de los usuarios
+            cboUsuarios.DataSource = uL.ObtenerTodosUsuarios2();
+            cboUsuarios.DisplayMember = "nombreCompleto";
+            cboUsuarios.ValueMember = "idUsuario";
+
             //carga el combo de estado
             cboEstado.Items.Add("Activo");
             cboEstado.Items.Add("Inactivo");
@@ -188,9 +193,40 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoCajas_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = cL.ObtenerTodosCajas(1).Count * 5;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtDescripcion, true);
+            hpAyuda.SetHelpString(this.txtDescripcion, "Es el nombre que se le dara a la caja");
+            hpAyuda.SetShowHelp(this.cboUsuarios, true);
+            hpAyuda.SetHelpString(this.cboUsuarios, "Selecciona los usuarios que se encuentran en el sistema");
+            hpAyuda.SetShowHelp(this.cboEstado, true);
+            hpAyuda.SetHelpString(this.cboEstado, "Selecciona el estado de las cajas que se va a mostrar");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtDescripcion, "Es el nombre que se le dara a la caja");
+            tltAyuda.SetToolTip(this.cboUsuarios, "Selecciona los usuarios que se encuentran en el sistema");
+            tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de las cajas que se va a mostrar");
+
+            tltAyuda.SetToolTip(this.btnEliminarCaja, "Elimina una caja");
+            tltAyuda.SetToolTip(this.btnInsertarCaja, "Registra una nueva caja");
+            tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
+            tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
+            tltAyuda.SetToolTip(this.btnModificarCaja, "Edita los registros de una caja");
+            tltAyuda.SetToolTip(this.btnMostrarEstado, "Muestra cajas dependiendo del estado");
+
+            //alterna colores en la filas del datagridview
+            dgvCajas.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvCajas.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            //no genera columnas de manera automatica
             dgvCajas.AutoGenerateColumns = false;
             cargarCombo();
-            refrescar();
+            //refrescar();
             limpiarCampos();
         }
 
@@ -220,6 +256,24 @@ namespace Sisfacturacion.Grafica
             {
                 dgvCajas.DataSource = null;
                 dgvCajas.DataSource = cL.ObtenerTodosCajas();
+            }
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            dgvCajas.Enabled = false;
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de cajas, espere por favor";
+            if (pbCarga.Value == 100)
+            {
+                dgvCajas.DataSource = cL.ObtenerTodosCajas(1);
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de cajas realizada exitosamente";
+                pbCarga.Visible = false;
+                dgvCajas.Enabled = true;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
+
             }
         }
     }

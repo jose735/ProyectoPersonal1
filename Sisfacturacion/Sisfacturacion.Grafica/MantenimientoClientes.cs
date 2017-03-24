@@ -38,20 +38,37 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoClientes_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = cl.ObtenerTodosCliente().Count * 5;
+
+            //alterna colores en la filas del datagridview
+            dgvClientes.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvClientes.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
             dgvClientes.AutoGenerateColumns = false;
-            refrescar();
+            //refrescar();
             limpiarCampos();
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtCodigo, true);
+            hpAyuda.SetHelpString(this.txtCodigo, "El número de identificación debe contener 9 digitos sin espacios");
+            hpAyuda.SetShowHelp(this.txtDireccion, true);
+            hpAyuda.SetHelpString(this.txtDireccion, "Se debe escribir la direccion exacta de la casa de habitación");
+            hpAyuda.SetShowHelp(this.txtNombre, true);
+            hpAyuda.SetHelpString(this.txtNombre, "El nombre debe contener los dos nombres y apellidos");
+            hpAyuda.SetShowHelp(this.txtTelefono, true);
+            hpAyuda.SetHelpString(this.txtTelefono, "El telefono debe contener 8 digitos sin espacios ni letras");
 
             //configuracion de tiempo de respuesta del tooltip
             tltHerramientas.AutoPopDelay = 5000;
-            tltHerramientas.InitialDelay = 1000;
+            tltHerramientas.InitialDelay = 500;
             tltHerramientas.ReshowDelay = 500;
 
             //configura que el tooltip se muestre siempre
             tltHerramientas.ShowAlways = true;
 
             //configura a cuales controles se va a mostrar y el mensaje que se mostrará
-            tltHerramientas.SetToolTip(this.txtCodigo, "El número de identificación debe contener 9 digitos sin espacios ");
+            tltHerramientas.SetToolTip(this.txtCodigo, "El número de identificación debe contener 9 digitos sin espacios");
             tltHerramientas.SetToolTip(this.txtDireccion, "Se debe escribir la direccion exacta de la casa de habitación");
             tltHerramientas.SetToolTip(this.txtNombre, "El nombre debe contener los dos nombres y apellidos");
             tltHerramientas.SetToolTip(this.txtTelefono, "El telefono debe contener 8 digitos sin espacios ni letras");
@@ -120,6 +137,24 @@ namespace Sisfacturacion.Grafica
             Principal p = new Principal();
             p.Show();
             this.Hide();
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            dgvClientes.Enabled = false;
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de clientes, espere por favor";
+            if (pbCarga.Value == 100)
+            {
+                dgvClientes.DataSource = cl.ObtenerTodosCliente();
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de clientes realizada exitosamente";
+                pbCarga.Visible = false;
+                dgvClientes.Enabled = true;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
+
+            }
         }
     }
 }

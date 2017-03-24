@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -45,6 +49,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.btnMostrarEstado = new System.Windows.Forms.Button();
+            this.pbCarga = new System.Windows.Forms.ProgressBar();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
+            this.tiempoCarga = new System.Windows.Forms.Timer(this.components);
+            this.hpAyuda = new System.Windows.Forms.HelpProvider();
+            this.tltAyuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCajas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,13 +96,31 @@
             // 
             // dgvCajas
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCajas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCajas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCajas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCajas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCajas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCajas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDescripcion,
             this.colPersonaCaja,
             this.colEstado});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCajas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCajas.Location = new System.Drawing.Point(43, 212);
             this.dgvCajas.Name = "dgvCajas";
             this.dgvCajas.ReadOnly = true;
@@ -172,7 +199,7 @@
             // 
             this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
             this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(528, 377);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(528, 458);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.Size = new System.Drawing.Size(54, 44);
             this.btnMenuPrincipal.TabIndex = 9;
@@ -184,7 +211,7 @@
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(27, 394);
+            this.lblMensaje.Location = new System.Drawing.Point(27, 475);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 10;
@@ -219,13 +246,35 @@
             this.btnMostrarEstado.UseVisualStyleBackColor = true;
             this.btnMostrarEstado.Click += new System.EventHandler(this.btnMostrarEstado_Click);
             // 
+            // pbCarga
+            // 
+            this.pbCarga.Location = new System.Drawing.Point(109, 368);
+            this.pbCarga.Name = "pbCarga";
+            this.pbCarga.Size = new System.Drawing.Size(386, 23);
+            this.pbCarga.TabIndex = 14;
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblPorcentaje.Location = new System.Drawing.Point(188, 394);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
+            this.lblPorcentaje.TabIndex = 15;
+            // 
+            // tiempoCarga
+            // 
+            this.tiempoCarga.Tick += new System.EventHandler(this.tiempoCarga_Tick);
+            // 
             // MantenimientoCajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimientos_Referentes_a_Personal_y_Clientes;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(594, 427);
+            this.ClientSize = new System.Drawing.Size(594, 514);
+            this.Controls.Add(this.lblPorcentaje);
+            this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.btnMostrarEstado);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.label3);
@@ -240,7 +289,10 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MantenimientoCajas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Cajas";
@@ -272,5 +324,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Button btnMostrarEstado;
+        private System.Windows.Forms.ProgressBar pbCarga;
+        private System.Windows.Forms.Label lblPorcentaje;
+        private System.Windows.Forms.Timer tiempoCarga;
+        private System.Windows.Forms.HelpProvider hpAyuda;
+        private System.Windows.Forms.ToolTip tltAyuda;
     }
 }

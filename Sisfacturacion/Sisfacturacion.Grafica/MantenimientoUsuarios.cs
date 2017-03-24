@@ -29,10 +29,6 @@ namespace Sisfacturacion.Grafica
             //Los controles y los mensajes que se van a mostrar en los controles asignados
             hpAyuda.SetShowHelp(this.txtNombreUsuario, true);
             hpAyuda.SetHelpString(this.txtNombreUsuario, "Es el alias con el que se ingresará al sistema");
-            hpAyuda.SetShowHelp(this.txtContrasenna, true);
-            hpAyuda.SetHelpString(this.txtContrasenna, "La contraseña debe contener letras y al menos un número");
-            hpAyuda.SetShowHelp(this.txtNombreCompleto, true);
-            hpAyuda.SetHelpString(this.txtNombreCompleto, "Se debe escribir el nombre y los dos apellidos");
             hpAyuda.SetShowHelp(this.cboTipoUsuario, true);
             hpAyuda.SetHelpString(this.cboTipoUsuario, "Selecciona el tipo de usuario que se maneja en el sistema");
             hpAyuda.SetShowHelp(this.cboEstado, true);
@@ -43,8 +39,6 @@ namespace Sisfacturacion.Grafica
             tltAyuda.ReshowDelay = 500;
             tltAyuda.ShowAlways = true;
             tltAyuda.SetToolTip(this.txtNombreUsuario, "Nombre con el que se ingresara en el sistema");
-            tltAyuda.SetToolTip(this.txtContrasenna, "La contraseña debe contener letras y al menos un número");
-            tltAyuda.SetToolTip(this.txtNombreCompleto, "Se debe escribir el nombre y los dos apellidos");
             tltAyuda.SetToolTip(this.cboTipoUsuario, "Selecciona el tipo de usuario que se maneja en el sistema");
             tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de los usuarios que se va a mostrar");
 
