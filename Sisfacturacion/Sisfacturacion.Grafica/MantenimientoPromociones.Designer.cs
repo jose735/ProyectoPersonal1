@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoPromociones));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
@@ -53,6 +57,11 @@
             this.btnModificarPromocion = new System.Windows.Forms.Button();
             this.btnInsertarPromocion = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.tiempoCarga = new System.Windows.Forms.Timer(this.components);
+            this.hpAyuda = new System.Windows.Forms.HelpProvider();
+            this.tltAyuda = new System.Windows.Forms.ToolTip(this.components);
+            this.pbCarga = new System.Windows.Forms.ProgressBar();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,7 +96,7 @@
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
             this.lblMensaje.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(15, 613);
+            this.lblMensaje.Location = new System.Drawing.Point(15, 655);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 13);
             this.lblMensaje.TabIndex = 2;
@@ -105,6 +114,8 @@
             // 
             // dgvProductos
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -183,6 +194,8 @@
             // 
             // dgvPromociones
             // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPromociones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPromociones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPromociones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPromociones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -269,7 +282,7 @@
             // 
             this.btnMenuPrincipal.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Volver;
             this.btnMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(571, 590);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(571, 632);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.Size = new System.Drawing.Size(52, 41);
             this.btnMenuPrincipal.TabIndex = 10;
@@ -309,13 +322,35 @@
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
+            // tiempoCarga
+            // 
+            this.tiempoCarga.Tick += new System.EventHandler(this.tiempoCarga_Tick);
+            // 
+            // pbCarga
+            // 
+            this.pbCarga.Location = new System.Drawing.Point(127, 590);
+            this.pbCarga.Name = "pbCarga";
+            this.pbCarga.Size = new System.Drawing.Size(371, 23);
+            this.pbCarga.TabIndex = 15;
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblPorcentaje.Location = new System.Drawing.Point(178, 616);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(0, 13);
+            this.lblPorcentaje.TabIndex = 16;
+            // 
             // MantenimientoPromociones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimientos_Referentes_a_Articulos;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(635, 643);
+            this.ClientSize = new System.Drawing.Size(635, 685);
+            this.Controls.Add(this.lblPorcentaje);
+            this.Controls.Add(this.pbCarga);
             this.Controls.Add(this.nudPorcentaje);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.btnMostrarEstado);
@@ -330,7 +365,11 @@
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MantenimientoPromociones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de promociones";
@@ -373,5 +412,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPorcentaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoProd;
+        private System.Windows.Forms.Timer tiempoCarga;
+        private System.Windows.Forms.HelpProvider hpAyuda;
+        private System.Windows.Forms.ToolTip tltAyuda;
+        private System.Windows.Forms.ProgressBar pbCarga;
+        private System.Windows.Forms.Label lblPorcentaje;
     }
 }

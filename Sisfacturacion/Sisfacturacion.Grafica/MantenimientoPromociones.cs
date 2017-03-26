@@ -49,10 +49,48 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoPromociones_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = proml.ObtenerTodosPromocion(1).Count * 5;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.nudPorcentaje, true);
+            hpAyuda.SetHelpString(this.nudPorcentaje, "Es el descuento que se le va a aplicar al producto");
+            hpAyuda.SetShowHelp(this.dgvPromociones, true);
+            hpAyuda.SetHelpString(this.dgvPromociones, "Es la lista completa de los productos que se encuentran en el sistema");
+            hpAyuda.SetShowHelp(this.cboEstado, true);
+            hpAyuda.SetHelpString(this.cboEstado, "Selecciona el estado de las promociones que se va a mostrar");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.nudPorcentaje, "Es el descuento que se le va a aplicar al producto");
+            tltAyuda.SetToolTip(this.dgvPromociones, "Es la lista completa de los productos que se encuentran en el sistema");
+            tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de los proveedores que se va a mostrar");
+
+            tltAyuda.SetToolTip(this.btnEliminarPromocion, "Elimina una promoción");
+            tltAyuda.SetToolTip(this.btnInsertarPromocion, "Registra una nueva promoción");
+            tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
+            tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
+            tltAyuda.SetToolTip(this.btnModificarPromocion, "Edita los registros de una promoción");
+            tltAyuda.SetToolTip(this.btnMostrarEstado, "Muestra promociones dependiendo del estado");
+
+            //alterna colores en la filas del datagridview
+            dgvProductos.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvProductos.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            dgvPromociones.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvPromociones.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            //no genera columnas de manera automatica
             dgvProductos.AutoGenerateColumns = false;
             dgvPromociones.AutoGenerateColumns = false;
             cargarCombo();
-            refrescar();
+
+            //carga de grid de productos activos
+            dgvProductos.DataSource = prodl.ObtenerTodosProducto(1);
+
+            //refrescar();
             LimpiarCampos();
         }
 
@@ -207,6 +245,23 @@ namespace Sisfacturacion.Grafica
                         cboEstado.SelectedIndex = i;
                     }
                 }
+            }
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            dgvPromociones.Enabled = false;
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de promociones, espere por favor";
+            if (pbCarga.Value == 100)
+            {
+                dgvPromociones.DataSource = proml.ObtenerTodosPromocion(1);
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de promociones realizada exitosamente";
+                pbCarga.Visible = false;
+                dgvPromociones.Enabled = true;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
             }
         }
     }

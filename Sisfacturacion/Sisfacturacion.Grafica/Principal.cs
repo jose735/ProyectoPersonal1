@@ -61,6 +61,7 @@ namespace Sisfacturacion.Grafica
                 }
                 else
                 {
+                    InicioSesion.AdminSuperv = false;
                     InicioSesion.ind2 = false;//es para poder volver a entrar de manera normal al cambiar contraseña
                     ind = true;
                     Application.Exit();
@@ -75,6 +76,7 @@ namespace Sisfacturacion.Grafica
             {
                 if (MessageBox.Show("Desea cerrar esta sesión, " + InicioSesion.nombreDeUsuario +" ?", "Sisfacturacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    InicioSesion.AdminSuperv = false;
                     InicioSesion.ind2 = false;//es para poder volver a entrar de manera normal al cambiar contraseña
                     InicioSesion i = new InicioSesion();
                     i.Show();
@@ -134,8 +136,8 @@ namespace Sisfacturacion.Grafica
 
         private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SeleccionCaja sc = new SeleccionCaja();
-            sc.Show();
+            Facturacion f = new Facturacion();
+            f.Show();
             this.Hide();
         }
     }

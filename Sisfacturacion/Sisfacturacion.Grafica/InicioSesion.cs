@@ -14,10 +14,14 @@ namespace Sisfacturacion.Grafica
 {
     public partial class InicioSesion : Form
     {
+        CajaLogica cl = new CajaLogica();
+        public static String nombreDeCaja = "";
+        public static int codigoCaja = 0;
         public static String nombreDeUsuario = "";
         public static String nombreUsuario = "";
         public static int tipoDeUsuario = 0;
         public static Boolean ind2 = false;
+        public static Boolean AdminSuperv = false;
         public InicioSesion()
         {
             InitializeComponent();
@@ -64,9 +68,36 @@ namespace Sisfacturacion.Grafica
                         nombreUsuario = u.nombreUsuario;
                         tipoDeUsuario = u.idTipoUsuario;
                         ind2 = true;
-                        Principal p = new Principal();
-                        p.Show();
-                        this.Hide();
+                        //verifica que el usuario sea cajero y si tiene asignada mas de una caja
+                        if (usuarioL.ObtenerCajaPorUsuario2(nombreUsuario).Count > 1)
+                        {
+                            SeleccionCaja s = new SeleccionCaja();
+                            s.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            //verifica que el usuario sea cajero y si tiene asignada una caja
+                            if (usuarioL.ObtenerCajaPorUsuario2(nombreUsuario).Count == 1)
+                            {
+                                codigoCaja = usuarioL.ObtenerCajaPorUsuario2(nombreUsuario).ElementAt(0).idCaja;
+                                nombreDeCaja = usuarioL.ObtenerCajaPorUsuario2(nombreUsuario).ElementAt(0).descripcion;
+                                Principal p = new Principal();
+                                p.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                //verifica que el usuario sea diferente de cajero y se dispone a selecciona la caja a utilizar
+                                if (usuarioL.ObtenerCajaPorUsuario2(nombreUsuario).Count < 1)
+                                {
+                                    AdminSuperv = true;
+                                    SeleccionCaja s = new SeleccionCaja();
+                                    s.Show();
+                                    this.Hide();
+                                }
+                            }
+                        }
                     }
                 }
                 else

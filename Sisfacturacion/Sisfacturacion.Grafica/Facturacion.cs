@@ -131,8 +131,9 @@ namespace Sisfacturacion.Grafica
         private void Facturacion_Load(object sender, EventArgs e)
         {
             dgvProductosDetalle.AutoGenerateColumns = false;
+            dgvProductosDetalle.Enabled= false;
             txtNombreCaja.Enabled = false;
-            txtNombreCaja.Text = SeleccionCaja.nombreCaja;
+            txtNombreCaja.Text = InicioSesion.nombreDeCaja;
             txtSubtotal.Enabled = false;
             txtImpuesto.Enabled = false;
             txtTotal.Enabled = false;
@@ -328,7 +329,7 @@ namespace Sisfacturacion.Grafica
             //se crea la instancia del encabezado de la factura
             Factura f = new Factura();
             f.idCliente = insertarClienteGeneral();
-            f.idCaja = SeleccionCaja.codCaja;
+            f.idCaja = InicioSesion.codigoCaja;
             f.idTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue);
             f.idUsuario = ul.ObtenerUsuario(InicioSesion.nombreUsuario).ElementAt(0).idUsuario;
             f.nombreLocal = "Super El Pueblo";

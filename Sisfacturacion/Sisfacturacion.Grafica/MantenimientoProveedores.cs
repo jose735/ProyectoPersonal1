@@ -45,6 +45,11 @@ namespace Sisfacturacion.Grafica
 
         public void cargarCombo()
         {
+            //carga del combo de ciudad
+            cboCiudad.DataSource = cl.ObtenerTodosCiudad(1);
+            cboCiudad.DisplayMember = "descripcion";
+            cboCiudad.ValueMember = "idCiudad";
+
             cboEstado.Items.Add("Seleccionar Estado");
             cboEstado.Items.Add("Activo");
             cboEstado.Items.Add("Inactivo");
@@ -53,9 +58,52 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoProveedores_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = pL.ObtenerTodosProveedor(1).Count * 5;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtCodigo, true);
+            hpAyuda.SetHelpString(this.txtCodigo, "Es el código asignado al proveedor");
+            hpAyuda.SetShowHelp(this.txtNombre, true);
+            hpAyuda.SetHelpString(this.txtNombre, "Es el nombre registrado del proveedor");
+            hpAyuda.SetShowHelp(this.txtNombreRepartidor, true);
+            hpAyuda.SetHelpString(this.txtNombreRepartidor, "Es el nombre del repartidor encargado de llevar el producto");
+            hpAyuda.SetShowHelp(this.txtDireccion, true);
+            hpAyuda.SetHelpString(this.txtDireccion, "Es la dirección exacta de la ubicación del proveedor");
+            hpAyuda.SetShowHelp(this.txtTelefono, true);
+            hpAyuda.SetHelpString(this.txtTelefono, "Es el número de teléfono de contacto con el proveedor");
+            hpAyuda.SetShowHelp(this.cboCiudad, true);
+            hpAyuda.SetHelpString(this.cboCiudad, "Selecciona la ciudad donde esta localizado el proveedor");
+            hpAyuda.SetShowHelp(this.cboEstado, true);
+            hpAyuda.SetHelpString(this.cboEstado, "Selecciona el estado de los proveedores que se va a mostrar");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtCodigo, "Es el código asignado al proveedor");
+            tltAyuda.SetToolTip(this.txtNombre, "Es el nombre registrado del proveedor");
+            tltAyuda.SetToolTip(this.txtNombreRepartidor, "Es el nombre del repartidor encargado de llevar el producto");
+            tltAyuda.SetToolTip(this.txtDireccion, "Es la dirección exacta de la ubicación del proveedor");
+            tltAyuda.SetToolTip(this.txtTelefono, "Es el número de teléfono de contacto con el proveedor");
+            tltAyuda.SetToolTip(this.cboCiudad, "Selecciona la ciudad donde esta localizado el proveedor");
+            tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de los proveedores que se va a mostrar");
+
+            tltAyuda.SetToolTip(this.btnEliminarProveedor, "Elimina un proveedor");
+            tltAyuda.SetToolTip(this.btnInsertarProveedor, "Registra un nuevo proveedor");
+            tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
+            tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
+            tltAyuda.SetToolTip(this.btnModificarProveedor, "Edita los registros de un proveedor");
+            tltAyuda.SetToolTip(this.btnMostrarEstado, "Muestra proveedores dependiendo del estado");
+
+            //alterna colores en la filas del datagridview
+            dgvProveedores.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvProveedores.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            //no genera columnas de manera automatica
             dgvProveedores.AutoGenerateColumns = false;
             cargarCombo();
-            refrescar();
+            //refrescar();
             limpiarCampos();
         }
 
@@ -289,6 +337,23 @@ namespace Sisfacturacion.Grafica
                         cboEstado.SelectedIndex = i;
                     }
                 }
+            }
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            dgvProveedores.Enabled = false;
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de proveedores, espere por favor";
+            if (pbCarga.Value == 100)
+            {
+                dgvProveedores.DataSource = pL.ObtenerTodosProveedor(1);
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de proveedores realizada exitosamente";
+                pbCarga.Visible = false;
+                dgvProveedores.Enabled = true;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
             }
         }
     }

@@ -44,6 +44,35 @@ namespace Sisfacturacion.Grafica
         {
             tiempoCarga.Start();
             tiempoCarga.Interval = cL.ObtenerTodosCiudad(1).Count * 5;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtCodigoCiudad, true);
+            hpAyuda.SetHelpString(this.txtCodigoCiudad, "Es el código con el que se represenata cada ciudad en cada país");
+            hpAyuda.SetShowHelp(this.txtNombreCiudad, true);
+            hpAyuda.SetHelpString(this.txtNombreCiudad, "Es el nombre que recibe la ciudad");
+            hpAyuda.SetShowHelp(this.cboEstado, true);
+            hpAyuda.SetHelpString(this.cboEstado, "Selecciona el estado de los usuarios que se va a mostrar");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtCodigoCiudad, "Es el código con el que se represenata cada ciudad en cada país");
+            tltAyuda.SetToolTip(this.txtNombreCiudad, "Es el nombre que recibe la ciudad");
+            tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de los usuarios que se va a mostrar");
+
+            tltAyuda.SetToolTip(this.btnEliminarCiudad, "Elimina una ciudad");
+            tltAyuda.SetToolTip(this.btnInsertarCiudad, "Registra una nueva ciudad");
+            tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
+            tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
+            tltAyuda.SetToolTip(this.btnModificarCiudad, "Edita los registros de una ciudad");
+            tltAyuda.SetToolTip(this.btnMostrarEstado, "Muestra ciudades dependiendo del estadio");
+
+            //alterna colores en la filas del datagridview
+            dgvCiudades.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvCiudades.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            //no genera columnas de manera automatica
             dgvCiudades.AutoGenerateColumns = false;
             cargarCombo();
             //refrescar();

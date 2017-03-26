@@ -47,7 +47,7 @@ namespace Sisfacturacion.Grafica
             tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
             tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
             tltAyuda.SetToolTip(this.btnModificarEstado, "Activa un usuario");
-            tltAyuda.SetToolTip(this.btnMostrarUsuarios, "Muestra usuarios dependiendo del estadio");
+            tltAyuda.SetToolTip(this.btnMostrarUsuarios, "Muestra usuarios dependiendo del estado");
 
             //alterna colores en la filas del datagridview
             dgvUsuarios.RowsDefaultCellStyle.BackColor = Color.LightBlue;

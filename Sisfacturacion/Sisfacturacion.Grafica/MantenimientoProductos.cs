@@ -41,6 +41,16 @@ namespace Sisfacturacion.Grafica
 
         public void cargarCombo()
         {
+            //carga del combo de categoria
+            cboCategoria.DataSource = cpl.ObtenerTodosCategoriaProducto();
+            cboCategoria.DisplayMember = "descripcion";
+            cboCategoria.ValueMember = "idCategoriaProducto";
+
+            //carga del combo de proveedor
+            cboProveedor.DataSource = prl.ObtenerTodosProveedor(1);
+            cboProveedor.DisplayMember = "nombre";
+            cboProveedor.ValueMember = "idProveedor";
+
             //carga el combo de estado
             cboEstado.Items.Add("Seleccionar Estado");
             cboEstado.Items.Add("Activo");
@@ -63,9 +73,58 @@ namespace Sisfacturacion.Grafica
 
         private void MantenimientoProductos_Load(object sender, EventArgs e)
         {
+            tiempoCarga.Start();
+            tiempoCarga.Interval = pl.ObtenerTodosProducto(1).Count * 5;
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtCodigo, true);
+            hpAyuda.SetHelpString(this.txtCodigo, "Es el código asignado al producto");
+            hpAyuda.SetShowHelp(this.txtNombre, true);
+            hpAyuda.SetHelpString(this.txtNombre, "Es el nombre registrado del producto");
+            hpAyuda.SetShowHelp(this.txtPrecio, true);
+            hpAyuda.SetHelpString(this.txtPrecio, "Es el precio dado por el proveedor y/o la ganancia del local");
+            hpAyuda.SetShowHelp(this.nudCantidad, true);
+            hpAyuda.SetHelpString(this.nudCantidad, "Es la cantidad del producto ingresado al inventario");
+            hpAyuda.SetShowHelp(this.nudGanancia, true);
+            hpAyuda.SetHelpString(this.nudGanancia, "Es el porcentaje de ganancia que obtendrá el local por la venta del producto");
+            hpAyuda.SetShowHelp(this.dtpFechaVencimiento, true);
+            hpAyuda.SetHelpString(this.dtpFechaVencimiento, "Selecciona la fecha de vencimiento del producto");
+            hpAyuda.SetShowHelp(this.cboProveedor, true);
+            hpAyuda.SetHelpString(this.cboProveedor, "Selecciona el proveedor al que pertenece el producto");
+            hpAyuda.SetShowHelp(this.cboCategoria, true);
+            hpAyuda.SetHelpString(this.cboCategoria, "Selecciona la categoria a la que pertenece el producto");
+            hpAyuda.SetShowHelp(this.cboEstado, true);
+            hpAyuda.SetHelpString(this.cboEstado, "Selecciona el estado de los productos que se va a mostrar");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtCodigo, "Es el código asignado al producto");
+            tltAyuda.SetToolTip(this.txtNombre, "Es el nombre registrado del producto");
+            tltAyuda.SetToolTip(this.txtPrecio, "Es el precio dado por el proveedor y/o la ganancia del local");
+            tltAyuda.SetToolTip(this.nudCantidad, "Es la cantidad del producto ingresado al inventario");
+            tltAyuda.SetToolTip(this.nudGanancia, "Es el porcentaje de ganancia que obtendrá el local por la venta del producto");
+            tltAyuda.SetToolTip(this.dtpFechaVencimiento, "Selecciona la fecha de vencimiento del producto");
+            tltAyuda.SetToolTip(this.cboProveedor, "Selecciona el proveedor al que pertenece el producto");
+            tltAyuda.SetToolTip(this.cboCategoria, "Selecciona la categoria a la que pertenece el producto");
+            tltAyuda.SetToolTip(this.cboEstado, "Selecciona el estado de los productos que se va a mostrar");
+
+            tltAyuda.SetToolTip(this.btnEliminarProducto, "Elimina un producto");
+            tltAyuda.SetToolTip(this.btnInsertarProducto, "Registra un nuevo producto");
+            tltAyuda.SetToolTip(this.btnLimpiarCampos, "Deja los campos vacios para nuevos registros");
+            tltAyuda.SetToolTip(this.btnMenuPrincipal, "Regresa al menu principal");
+            tltAyuda.SetToolTip(this.btnModificarProducto, "Edita los registros de un producto");
+            tltAyuda.SetToolTip(this.btnMostrarEstado, "Muestra productos dependiendo del estado");
+
+            //alterna colores en la filas del datagridview
+            dgvProducto.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvProducto.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            //no genera columnas de manera automatica
             dgvProducto.AutoGenerateColumns = false;
             cargarCombo();
-            refrescar();
+            //refrescar();
             limpiarCampos();
         }
 
@@ -379,6 +438,23 @@ namespace Sisfacturacion.Grafica
         private void nudGanancia_ValueChanged(object sender, EventArgs e)
         {
             ind = true;
+        }
+
+        private void tiempoCarga_Tick(object sender, EventArgs e)
+        {
+            pbCarga.Increment(1);
+            dgvProducto.Enabled = false;
+            lblPorcentaje.Text = pbCarga.Value.ToString() + "%   Cargando datos de productos, espere por favor";
+            if (pbCarga.Value == 100)
+            {
+                dgvProducto.DataSource = pl.ObtenerTodosProducto(1);
+                lblMensaje.ForeColor = Color.Green;
+                lblMensaje.Text = "Carga de productos realizada exitosamente";
+                pbCarga.Visible = false;
+                dgvProducto.Enabled = true;
+                tiempoCarga.Stop();
+                lblPorcentaje.Text = "";
+            }
         }
     }
 }

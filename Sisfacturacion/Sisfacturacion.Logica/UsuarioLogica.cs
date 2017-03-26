@@ -28,6 +28,12 @@ namespace Sisfacturacion.Logica
             return datos.SeleccionarCajaPorUsuario(nombreUsuario);
         }
 
+        public List<Caja> ObtenerCajaPorUsuario2(String nombreUsuario)
+        {
+            UsuarioDatos datos = new UsuarioDatos();
+            return datos.SeleccionarCajaPorUsuario2(nombreUsuario);
+        }
+
         public List<Usuario> ObtenerTodosUsuarios()
         {
             UsuarioDatos datos = new UsuarioDatos();

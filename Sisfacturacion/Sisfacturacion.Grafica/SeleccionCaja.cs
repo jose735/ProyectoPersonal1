@@ -15,6 +15,7 @@ namespace Sisfacturacion.Grafica
     public partial class SeleccionCaja : Form
     {
         CajaLogica cl = new CajaLogica();
+        UsuarioLogica ul = new UsuarioLogica();
         public static String nombreCaja = "";
         public static int codCaja = 0;
         public SeleccionCaja()
@@ -24,10 +25,22 @@ namespace Sisfacturacion.Grafica
 
         public void refrescar()
         {
-            //carga de combo de cajas activas
-            cboCajas.DataSource = cl.ObtenerTodosCajas(1);
-            cboCajas.DisplayMember = "descripcion";
-            cboCajas.ValueMember = "idCaja";
+            //trae todas las cajas debido a que va a accesar un administrador o un supervisor
+            if (InicioSesion.AdminSuperv == true)
+            {
+                //carga de combo de cajas activas
+                cboCajas.DataSource = cl.ObtenerTodosCajas(1);
+                cboCajas.DisplayMember = "descripcion";
+                cboCajas.ValueMember = "idCaja";
+            }
+            else
+            {
+                //trae las cajas asignadas al usuario que es un cajero
+                //carga de combo de cajas activas
+                cboCajas.DataSource = ul.ObtenerCajaPorUsuario2(InicioSesion.nombreUsuario);
+                cboCajas.DisplayMember = "descripcion";
+                cboCajas.ValueMember = "idCaja";
+            }
         }
 
         private void SeleccionCaja_Load(object sender, EventArgs e)
@@ -37,11 +50,11 @@ namespace Sisfacturacion.Grafica
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            codCaja = Convert.ToInt32(cboCajas.SelectedValue);
+            InicioSesion.codigoCaja = Convert.ToInt32(cboCajas.SelectedValue);
             Caja c = (Caja) cboCajas.SelectedItem;
-            nombreCaja = c.descripcion;
-            Facturacion f = new Facturacion();
-            f.Show();
+            InicioSesion.nombreDeCaja = c.descripcion;
+            Principal p = new Principal();
+            p.Show();
             this.Hide();
         }
 
