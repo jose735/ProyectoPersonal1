@@ -68,6 +68,27 @@ namespace Sisfacturacion.Grafica
                 txtNombreUsuario.Text = InicioSesion.nombreUsuario;
                 txtNombreUsuario.ReadOnly = true;
             }
+
+            //Los controles y los mensajes que se van a mostrar en los controles asignados
+            hpAyuda.SetShowHelp(this.txtNombreUsuario, true);
+            hpAyuda.SetHelpString(this.txtNombreUsuario, "Es el nombre de usuario con el que esta registrado");
+            hpAyuda.SetShowHelp(this.txtContrasennaActual, true);
+            hpAyuda.SetHelpString(this.txtContrasennaActual, "Es la contraseña que actualmente tiene registrado");
+            hpAyuda.SetShowHelp(this.txtNuevaContrasenna, true);
+            hpAyuda.SetHelpString(this.txtNuevaContrasenna, "Es la nueva contraseña con la que ingresará");
+            hpAyuda.SetShowHelp(this.txtConfirmarContrasenna, true);
+            hpAyuda.SetHelpString(this.txtConfirmarContrasenna, "Es la confirmación de la nueva contraseña");
+
+            tltAyuda.AutoPopDelay = 5000;
+            tltAyuda.InitialDelay = 500;
+            tltAyuda.ReshowDelay = 500;
+            tltAyuda.ShowAlways = true;
+            tltAyuda.SetToolTip(this.txtNombreUsuario, "Es el nombre de usuario con el que esta registrado");
+            tltAyuda.SetToolTip(this.txtContrasennaActual, "Es la contraseña que actualmente tiene registrado");
+            tltAyuda.SetToolTip(this.txtNuevaContrasenna, "La contraseña debe contener letras y al menos un número");
+            tltAyuda.SetToolTip(this.txtConfirmarContrasenna, "La contraseña debe ser la misma que digitó en el campo anterior");
+
+            tltAyuda.SetToolTip(this.btnCambiarContrasenna, "Realiza el cambio de contraseña");
         }
     }
 }

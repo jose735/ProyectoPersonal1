@@ -297,6 +297,42 @@
   <ItemGroup>
     <None Include="Resources\Mantenimientos Referentes a Personal y Clientes.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CambiarContraseña.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mantenimiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Procesos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mantenimiento2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mantenimiento3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Procesos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CambiarContraseña2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cerrar sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen Inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen Inicio2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -75,12 +75,14 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cerrarSesiónToolStripMenuItem,
             this.cambiarContraseñaToolStripMenuItem});
+            this.archivoToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Archivo;
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
+            this.cerrarSesiónToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Cerrar_sesion;
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
@@ -88,6 +90,7 @@
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
+            this.cambiarContraseñaToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.CambiarContraseña2;
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
             this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
@@ -98,8 +101,9 @@
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.relacionadoAArtículosToolStripMenuItem,
             this.relacionadoAPersonalYClientesToolStripMenuItem});
+            this.mantenimientoToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento;
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
-            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
+            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
             // 
             // relacionadoAArtículosToolStripMenuItem
@@ -109,12 +113,14 @@
             this.promocionesToolStripMenuItem,
             this.proveedorToolStripMenuItem,
             this.ciudadToolStripMenuItem});
+            this.relacionadoAArtículosToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento2;
             this.relacionadoAArtículosToolStripMenuItem.Name = "relacionadoAArtículosToolStripMenuItem";
             this.relacionadoAArtículosToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.relacionadoAArtículosToolStripMenuItem.Text = "Relacionado a artículos";
             // 
             // productoToolStripMenuItem
             // 
+            this.productoToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
             this.productoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.productoToolStripMenuItem.Text = "Producto";
@@ -122,6 +128,7 @@
             // 
             // promocionesToolStripMenuItem
             // 
+            this.promocionesToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.promocionesToolStripMenuItem.Name = "promocionesToolStripMenuItem";
             this.promocionesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.promocionesToolStripMenuItem.Text = "Promociones";
@@ -129,6 +136,7 @@
             // 
             // proveedorToolStripMenuItem
             // 
+            this.proveedorToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
             this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
@@ -136,6 +144,7 @@
             // 
             // ciudadToolStripMenuItem
             // 
+            this.ciudadToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.ciudadToolStripMenuItem.Name = "ciudadToolStripMenuItem";
             this.ciudadToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.ciudadToolStripMenuItem.Text = "Ciudad";
@@ -147,12 +156,14 @@
             this.cajasToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.usuariosToolStripMenuItem});
+            this.relacionadoAPersonalYClientesToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento2;
             this.relacionadoAPersonalYClientesToolStripMenuItem.Name = "relacionadoAPersonalYClientesToolStripMenuItem";
             this.relacionadoAPersonalYClientesToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.relacionadoAPersonalYClientesToolStripMenuItem.Text = "Relacionado a Personal y Clientes";
             // 
             // cajasToolStripMenuItem
             // 
+            this.cajasToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
             this.cajasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.cajasToolStripMenuItem.Text = "Cajas";
@@ -160,6 +171,7 @@
             // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
@@ -167,6 +179,7 @@
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Mantenimiento3;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
@@ -177,12 +190,14 @@
             this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.facturacionToolStripMenuItem,
             this.devolucionesToolStripMenuItem});
+            this.procesosToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Procesos;
             this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
-            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.procesosToolStripMenuItem.Text = "Procesos";
             // 
             // facturacionToolStripMenuItem
             // 
+            this.facturacionToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Procesos2;
             this.facturacionToolStripMenuItem.Name = "facturacionToolStripMenuItem";
             this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.facturacionToolStripMenuItem.Text = "Facturacion";
@@ -190,14 +205,16 @@
             // 
             // devolucionesToolStripMenuItem
             // 
+            this.devolucionesToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Procesos2;
             this.devolucionesToolStripMenuItem.Name = "devolucionesToolStripMenuItem";
             this.devolucionesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.devolucionesToolStripMenuItem.Text = "Devoluciones";
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.Image = global::Sisfacturacion.Grafica.Properties.Resources.Reportes;
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // statusStrip1
