@@ -107,7 +107,7 @@ namespace Musica.Datos
                 // Se debe abrir la conexión
                 conexion.Open();
                 //Sentencia que se necesita ejecutar
-                string sql = "PA_Seleccionar_Album";
+                string sql = "PA_Seleccionar_Por_Id_Album";
                 //El comando es el objeto que ejecuta la sentencia
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 // Nota: es obligatorio cambiar el tipo de comando

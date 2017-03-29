@@ -16,7 +16,7 @@ namespace Musica.Grafica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reproductor());
+            Application.Run(new Principal());
         }
     }
 }

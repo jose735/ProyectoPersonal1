@@ -31,7 +31,7 @@ namespace Musica.Logica
             return datos.SeleccionarTodosAlbum();
         }
 
-        public void InsertarInterprete(Album album)
+        public void InsertarAlbum(Album album)
         {
             AlbumDatos datos = new AlbumDatos();
             datos.Insertar(album);
