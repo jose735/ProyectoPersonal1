@@ -40,7 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumLogica.cs" />
+    <Compile Include="CancionLogica.cs" />
+    <Compile Include="InterpreteLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Musica.Datos\Musica.Datos.csproj">
+      <Project>{96d89ac5-4f62-4733-864f-9c07e4a50704}</Project>
+      <Name>Musica.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Musica.Entidades\Musica.Entidades.csproj">
+      <Project>{2bd1a1d8-8e41-42ab-b180-15b437bd2dda}</Project>
+      <Name>Musica.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

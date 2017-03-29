@@ -98,6 +98,16 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Musica.Entidades\Musica.Entidades.csproj">
+      <Project>{2bd1a1d8-8e41-42ab-b180-15b437bd2dda}</Project>
+      <Name>Musica.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Musica.Logica\Musica.Logica.csproj">
+      <Project>{788f1348-5d7e-410d-bf1d-427aa5e17054}</Project>
+      <Name>Musica.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
