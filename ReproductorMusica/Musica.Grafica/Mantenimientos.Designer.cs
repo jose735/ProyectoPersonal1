@@ -44,11 +44,6 @@
             this.btnAbrirArchivo = new System.Windows.Forms.Button();
             this.btnInsertarCancion = new System.Windows.Forms.Button();
             this.dgvCancion = new System.Windows.Forms.DataGridView();
-            this.colIdCancion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreCancion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardarArchivo = new System.Windows.Forms.Button();
             this.cboInterprete = new System.Windows.Forms.ComboBox();
             this.cboAlbum = new System.Windows.Forms.ComboBox();
@@ -71,6 +66,11 @@
             this.ofdArchivo = new System.Windows.Forms.OpenFileDialog();
             this.colIdInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdCancion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreCancion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcMantenimientos.SuspendLayout();
             this.tpAlbum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbum)).BeginInit();
@@ -257,41 +257,6 @@
             this.dgvCancion.Size = new System.Drawing.Size(614, 150);
             this.dgvCancion.TabIndex = 10;
             // 
-            // colIdCancion
-            // 
-            this.colIdCancion.DataPropertyName = "idCancion";
-            this.colIdCancion.HeaderText = "N° de Cancion";
-            this.colIdCancion.Name = "colIdCancion";
-            this.colIdCancion.ReadOnly = true;
-            // 
-            // colNombreCancion
-            // 
-            this.colNombreCancion.DataPropertyName = "nombre";
-            this.colNombreCancion.HeaderText = "Nombre de la Canción";
-            this.colNombreCancion.Name = "colNombreCancion";
-            this.colNombreCancion.ReadOnly = true;
-            // 
-            // colInterprete
-            // 
-            this.colInterprete.DataPropertyName = "nombreInterprete";
-            this.colInterprete.HeaderText = "Interprete";
-            this.colInterprete.Name = "colInterprete";
-            this.colInterprete.ReadOnly = true;
-            // 
-            // colAlbum
-            // 
-            this.colAlbum.DataPropertyName = "nombreAlbum";
-            this.colAlbum.HeaderText = "Album";
-            this.colAlbum.Name = "colAlbum";
-            this.colAlbum.ReadOnly = true;
-            // 
-            // colRuta
-            // 
-            this.colRuta.DataPropertyName = "rutaCancion";
-            this.colRuta.HeaderText = "Ruta de Acceso";
-            this.colRuta.Name = "colRuta";
-            this.colRuta.ReadOnly = true;
-            // 
             // btnGuardarArchivo
             // 
             this.btnGuardarArchivo.Location = new System.Drawing.Point(378, 86);
@@ -469,6 +434,41 @@
             this.colNombreInterprete.Name = "colNombreInterprete";
             this.colNombreInterprete.ReadOnly = true;
             // 
+            // colIdCancion
+            // 
+            this.colIdCancion.DataPropertyName = "idCancion";
+            this.colIdCancion.HeaderText = "N° de Cancion";
+            this.colIdCancion.Name = "colIdCancion";
+            this.colIdCancion.ReadOnly = true;
+            // 
+            // colNombreCancion
+            // 
+            this.colNombreCancion.DataPropertyName = "nombreCancion";
+            this.colNombreCancion.HeaderText = "Nombre de la Canción";
+            this.colNombreCancion.Name = "colNombreCancion";
+            this.colNombreCancion.ReadOnly = true;
+            // 
+            // colInterprete
+            // 
+            this.colInterprete.DataPropertyName = "nombreInterprete";
+            this.colInterprete.HeaderText = "Interprete";
+            this.colInterprete.Name = "colInterprete";
+            this.colInterprete.ReadOnly = true;
+            // 
+            // colAlbum
+            // 
+            this.colAlbum.DataPropertyName = "nombreAlbum";
+            this.colAlbum.HeaderText = "Album";
+            this.colAlbum.Name = "colAlbum";
+            this.colAlbum.ReadOnly = true;
+            // 
+            // colRuta
+            // 
+            this.colRuta.DataPropertyName = "rutaCancion";
+            this.colRuta.HeaderText = "Ruta de Acceso";
+            this.colRuta.Name = "colRuta";
+            this.colRuta.ReadOnly = true;
+            // 
             // Mantenimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,11 +523,6 @@
         private System.Windows.Forms.Button btnInsertarInterprete;
         private System.Windows.Forms.DataGridView dgvInterprete;
         private System.Windows.Forms.DataGridView dgvCancion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdCancion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreCancion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colInterprete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAlbum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRuta;
         private System.Windows.Forms.Button btnInsertarCancion;
         private System.Windows.Forms.ErrorProvider epAlbum;
         private System.Windows.Forms.ErrorProvider epCancion;
@@ -541,5 +536,10 @@
         private System.Windows.Forms.Label lblConfirmacionCancion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdInterprete;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreInterprete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdCancion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreCancion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInterprete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAlbum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRuta;
     }
 }

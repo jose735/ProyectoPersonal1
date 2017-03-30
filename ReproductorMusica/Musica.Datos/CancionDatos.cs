@@ -160,7 +160,7 @@ namespace Musica.Datos
 
         }
 
-        public List<Cancion> SeleccionarCancionPorAlbum(String nombre)
+        public List<Cancion> SeleccionarCancionPorAlbum(int idAlbum)
         {
             List<Cancion> lista = new List<Cancion>();
             //Creamos el objeto que se conecta con la base de datos
@@ -178,7 +178,7 @@ namespace Musica.Datos
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 // Nota: es obligatorio cambiar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@idAlbum", idAlbum);
 
 
                 // Ejecutar el comando de modo que retorne datos
@@ -216,7 +216,7 @@ namespace Musica.Datos
 
         }
 
-        public List<Cancion> SeleccionarCancionPorInterprete(String nombre)
+        public List<Cancion> SeleccionarCancionPorInterprete(int idInterprete)
         {
             List<Cancion> lista = new List<Cancion>();
             //Creamos el objeto que se conecta con la base de datos
@@ -234,7 +234,7 @@ namespace Musica.Datos
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 // Nota: es obligatorio cambiar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@idInterprete", idInterprete);
 
 
                 // Ejecutar el comando de modo que retorne datos

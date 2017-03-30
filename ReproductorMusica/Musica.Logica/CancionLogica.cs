@@ -31,16 +31,16 @@ namespace Musica.Logica
             return datos.SeleccionarTodosCancion();
         }
 
-        public List<Cancion> ObtenerPorAlbumCancion(String nombre)
+        public List<Cancion> ObtenerPorAlbumCancion(int idAlbum)
         {
             CancionDatos datos = new CancionDatos();
-            return datos.SeleccionarCancionPorAlbum(nombre);
+            return datos.SeleccionarCancionPorAlbum(idAlbum);
         }
 
-        public List<Cancion> ObtenerPorInterpreteCancion(String nombre)
+        public List<Cancion> ObtenerPorInterpreteCancion(int idInterprete)
         {
             CancionDatos datos = new CancionDatos();
-            return datos.SeleccionarCancionPorInterprete(nombre);
+            return datos.SeleccionarCancionPorInterprete(idInterprete);
         }
 
         public void InsertarCancion(Cancion cancion)

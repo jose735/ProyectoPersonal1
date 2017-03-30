@@ -147,13 +147,13 @@ namespace Musica.Grafica
         {
             if (txtNombreCancion.Text == "")
             {
-                epCancion.SetError(txtNombreAlbum, "No se permite dejar en blanco este campo, es obligatorio");
+                epCancion.SetError(txtNombreCancion, "No se permite dejar en blanco este campo, es obligatorio");
             }
             else
             {
                 epCancion.Clear();
                 ruta = "";
-                sfdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi";
+                sfdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi|Todos los archivos|*.*";
                 sfdArchivo.FilterIndex = 1;
                 sfdArchivo.InitialDirectory = @"C:\Users\solbe\Source\Repos\ProyectoPersonal1\ReproductorMusica\Musica.Grafica\Musicas y Videos";
                 sfdArchivo.FileName = txtNombreCancion.Text;
@@ -218,13 +218,13 @@ namespace Musica.Grafica
             if (txtNombreCancion.Text == "")
             {
                 ind = true;
-                epCancion.SetError(txtNombreAlbum, "No se permite dejar en blanco este campo, es obligatorio");
+                epCancion.SetError(txtNombreCancion, "No se permite dejar en blanco este campo, es obligatorio");
             }
 
             if (txtNombreRutaArchivo.Text == "")
             {
                 ind = true;
-                epCancion.SetError(txtNombreAlbum, "No se permite dejar en blanco este campo, es obligatorio");
+                epCancion.SetError(txtNombreRutaArchivo, "No se permite dejar en blanco este campo, es obligatorio");
             }
 
             return ind;
@@ -232,7 +232,7 @@ namespace Musica.Grafica
 
         private void btnAbrirArchivo_Click(object sender, EventArgs e)
         {
-            ofdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi";
+            ofdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi|Todos los archivos|*.*";
             ofdArchivo.FilterIndex = 1;
             ofdArchivo.RestoreDirectory = true;
 
