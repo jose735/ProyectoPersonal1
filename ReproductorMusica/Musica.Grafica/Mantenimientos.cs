@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,51 +14,14 @@ namespace Musica.Grafica
 {
     public partial class Mantenimientos : Form
     {
-        InterpreteLogica il= new InterpreteLogica();
-        AlbumLogica al= new AlbumLogica();
-        CancionLogica cl= new CancionLogica();
+        InterpreteLogica il = new InterpreteLogica();
+        AlbumLogica al = new AlbumLogica();
+        CancionLogica cl = new CancionLogica();
         public String ruta = "";
+
         public Mantenimientos()
         {
             InitializeComponent();
-        }
-
-        private void tcMantenimientos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tcMantenimientos.SelectedIndex == 0)
-            {
-                epAlbum.Clear();
-                refrescarAlbum();
-            }
-
-            if (tcMantenimientos.SelectedIndex == 1)
-            {
-                epCancion.Clear();
-                refrescarComboAlbum();
-                refrescarComboInterprete();
-                refrescarCancion();
-            }
-
-            if (tcMantenimientos.SelectedIndex == 2)
-            {
-                epInterprete.Clear();
-                refrescarInterprete();
-            }
-        }
-
-        private void Mantenimientos_Load(object sender, EventArgs e)
-        {
-            dgvAlbum.AutoGenerateColumns = false;
-            dgvCancion.AutoGenerateColumns = false;
-            dgvInterprete.AutoGenerateColumns = false;
-            epAlbum.Clear();
-            epCancion.Clear();
-            epInterprete.Clear();
-            refrescarAlbum();
-            refrescarComboAlbum();
-            refrescarInterprete();
-            refrescarComboInterprete();
-            refrescarCancion();
         }
 
         public void refrescarAlbum()
@@ -91,101 +53,99 @@ namespace Musica.Grafica
             dgvCancion.DataSource = cl.ObtenerTodosCancion();
         }
 
-        private void btnInsertarAlbum_Click(object sender, EventArgs e)
+        private void Mantenimientos_Load(object sender, EventArgs e)
         {
-            if (txtNombreAlbum.Text == "")
-            {
-                epAlbum.SetError(txtNombreAlbum, "No se permite dejar en blanco este campo, es obligatorio");
-            }
-            else
-            {
-                epAlbum.Clear();
-
-                if (al.existe(txtNombreAlbum.Text) == true)
-                {
-                    lblConfirmacionAlbum.ForeColor = Color.Red;
-                    lblConfirmacionAlbum.Text = "El album ya existe, regitre otro";
-                }
-                else
-                {
-                    Album a = new Album();
-                    a.descripcion = txtNombreAlbum.Text;
-
-                    al.InsertarAlbum(a);
-                    refrescarAlbum();
-                }
-            }
+            dgvAlbum.AutoGenerateColumns = false;
+            dgvCancion.AutoGenerateColumns = false;
+            dgvInterprete.AutoGenerateColumns = false;
+            refrescarAlbum();
+            refrescarComboAlbum();
+            refrescarInterprete();
+            refrescarComboInterprete();
+            refrescarCancion();
         }
 
         private void btnInsertarInterprete_Click(object sender, EventArgs e)
         {
             if (txtNombreInterprete.Text == "")
             {
-                epAlbum.SetError(txtNombreInterprete, "No se permite dejar en blanco este campo, es obligatorio");
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "No se permite dejar en blanco este campo, es obligatorio";
             }
             else
             {
-                epInterprete.Clear();
+                lblMensaje.Text = "";
 
                 if (il.existe(txtNombreInterprete.Text) == true)
                 {
-                    lblConfirmacionInterprete.ForeColor = Color.Red;
-                    lblConfirmacionInterprete.Text = "El interprete ya existe, regitre otro";
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "El interprete ya existe, regitre otro";
                 }
                 else
                 {
+                    lblMensaje.Text = "";
                     Interprete i = new Interprete();
                     i.descripcion = txtNombreInterprete.Text;
 
                     il.InsertarInterprete(i);
                     refrescarInterprete();
+                    refrescarComboInterprete();
                 }
             }
         }
 
-        private void btnGuardarArchivo_Click(object sender, EventArgs e)
+        private void btnInsertarAlbum_Click(object sender, EventArgs e)
         {
-            if (txtNombreCancion.Text == "")
+            if (txtNombreAlbum.Text == "")
             {
-                epCancion.SetError(txtNombreCancion, "No se permite dejar en blanco este campo, es obligatorio");
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "No se permite dejar en blanco este campo, es obligatorio";
             }
             else
             {
-                epCancion.Clear();
-                ruta = "";
-                sfdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi|Todos los archivos|*.*";
-                sfdArchivo.FilterIndex = 1;
-                sfdArchivo.InitialDirectory = @"C:\Users\solbe\Source\Repos\ProyectoPersonal1\ReproductorMusica\Musica.Grafica\Musicas y Videos";
-                sfdArchivo.FileName = txtNombreCancion.Text;
-                sfdArchivo.RestoreDirectory = true;
+                lblMensaje.Text = "";
 
-                try
+                if (al.existe(txtNombreAlbum.Text) == true)
                 {
-                    if (sfdArchivo.ShowDialog() == DialogResult.OK)
-                    {
-                        ruta = sfdArchivo.FileName;
-                        Stream fileStream = sfdArchivo.OpenFile();
-                        StreamWriter sw = new StreamWriter(fileStream);
-
-                        sw.Write(txtNombreCancion.Text);
-                        sw.Close();
-                        fileStream.Close();
-
-                        lblConfirmacion.ForeColor = Color.Green;
-                        lblConfirmacion.Text = "Archivo guardado";
-                    }
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "El album ya existe, regitre otro";
                 }
-                catch (Exception)
+                else
                 {
-                    lblConfirmacion.ForeColor = Color.Red;
-                    lblConfirmacion.Text = "Error al guardar el archivo";
+                    lblMensaje.Text = "";
+                    Album a = new Album();
+                    a.descripcion = txtNombreAlbum.Text;
+
+                    al.InsertarAlbum(a);
+                    refrescarAlbum();
+                    refrescarComboAlbum();
                 }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSeleccionaCancion_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Elige la canción";
+            ofd.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi|Todos los archivos|*.*";
+            ofd.FilterIndex = 1;
+            ofd.InitialDirectory = @"C:\Users\solbe\Source\Repos\ProyectoPersonal1\ReproductorMusica\Musica.Grafica\Musicas y Videos";
+            ofd.RestoreDirectory = true;
 
+            try
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    ruta = ofd.FileName;
+                    lblMensaje.ForeColor = Color.Green;
+                    lblMensaje.Text = "Archivo guardado";
+                }
+            }
+            catch (Exception)
+            {
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "Error al abrir el archivo";
+            }
         }
 
         private void btnInsertarCancion_Click(object sender, EventArgs e)
@@ -194,8 +154,8 @@ namespace Musica.Grafica
             {
                 if (cl.existe(txtNombreCancion.Text, Convert.ToInt32(cboAlbum.SelectedValue), Convert.ToInt32(cboInterprete.SelectedValue)) == true)
                 {
-                    lblConfirmacionCancion.ForeColor = Color.Red;
-                    lblConfirmacionCancion.Text = "La canción ya existe, regitre otro";
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "La canción ya existe, regitre otro";
                 }
                 else
                 {
@@ -214,40 +174,15 @@ namespace Musica.Grafica
         public Boolean validarCamposCancion()
         {
             Boolean ind = false;
-             
+
             if (txtNombreCancion.Text == "")
             {
                 ind = true;
-                epCancion.SetError(txtNombreCancion, "No se permite dejar en blanco este campo, es obligatorio");
-            }
-
-            if (txtNombreRutaArchivo.Text == "")
-            {
-                ind = true;
-                epCancion.SetError(txtNombreRutaArchivo, "No se permite dejar en blanco este campo, es obligatorio");
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Text = "No se permite dejar en blanco este campo, es obligatorio";
             }
 
             return ind;
-        }
-
-        private void btnAbrirArchivo_Click(object sender, EventArgs e)
-        {
-            ofdArchivo.Filter = "Archivo mp3(*.mp3)|*.mp3 |Archivo mp4(*.mp4)|*.mp4|Archivo avi(*.avi)|*.avi|Todos los archivos|*.*";
-            ofdArchivo.FilterIndex = 1;
-            ofdArchivo.RestoreDirectory = true;
-
-            try
-            {
-                if (ofdArchivo.ShowDialog() == DialogResult.OK)
-                {
-                    txtNombreRutaArchivo.Text = ofdArchivo.FileName;
-                }
-            }
-            catch (Exception)
-            {
-                lblConfirmacion.ForeColor = Color.Red;
-                lblConfirmacion.Text = "Error al abrir el archivo";
-            }
         }
     }
 }
