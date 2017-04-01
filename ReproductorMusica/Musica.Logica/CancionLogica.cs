@@ -48,5 +48,11 @@ namespace Musica.Logica
             CancionDatos datos = new CancionDatos();
             datos.Insertar(cancion);
         }
+
+        public List<Cancion> ObtenerPorNombreCancion(String nombre)
+        {
+            CancionDatos datos = new CancionDatos();
+            return datos.SeleccionarPorNombreCancion(nombre);
+        }
     }
 }

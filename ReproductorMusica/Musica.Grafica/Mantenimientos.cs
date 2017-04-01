@@ -55,6 +55,7 @@ namespace Musica.Grafica
 
         private void Mantenimientos_Load(object sender, EventArgs e)
         {
+            lblMensaje.Text = "";
             dgvAlbum.AutoGenerateColumns = false;
             dgvCancion.AutoGenerateColumns = false;
             dgvInterprete.AutoGenerateColumns = false;
@@ -90,6 +91,7 @@ namespace Musica.Grafica
                     il.InsertarInterprete(i);
                     refrescarInterprete();
                     refrescarComboInterprete();
+                    txtNombreInterprete.Text = "";
                 }
             }
         }
@@ -119,6 +121,7 @@ namespace Musica.Grafica
                     al.InsertarAlbum(a);
                     refrescarAlbum();
                     refrescarComboAlbum();
+                    txtNombreAlbum.Text = "";
                 }
             }
         }
@@ -159,6 +162,7 @@ namespace Musica.Grafica
                 }
                 else
                 {
+                    lblMensaje.Text = "";
                     Cancion c = new Cancion();
                     c.nombreCancion = txtNombreCancion.Text;
                     c.rutaCancion = ruta;
@@ -167,6 +171,9 @@ namespace Musica.Grafica
 
                     cl.InsertarCancion(c);
                     refrescarCancion();
+                    txtNombreCancion.Text = "";
+                    cboAlbum.SelectedIndex = 0;
+                    cboInterprete.SelectedIndex = 0;
                 }
             }
         }
